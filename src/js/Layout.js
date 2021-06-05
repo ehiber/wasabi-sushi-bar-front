@@ -10,7 +10,7 @@ import AppContextProvider from "./contexts/AppContext";
 import loaderReducer, { initLoaderState } from "./reducers/loaderReducer";
 import Contest from "./modules/Contest";
 import Login from "./modules/Login";
-import LoginFormView from "./modules/Auth/components/forms/index";
+import LoginFormView from "./modules/Auth/LoginFormView";
 
 const Layout = (props) => {
 	const [state, dispatch] = useReducer(loaderReducer, initLoaderState);
