@@ -11,6 +11,7 @@ import loaderReducer, { initLoaderState } from "./reducers/loaderReducer";
 import Contest from "./modules/Contest";
 import Login from "./modules/Login";
 import LoginFormView from "./modules/Auth/LoginFormView";
+import RegisterFormView from "./modules/Auth/RegisterFormView";
 
 const Layout = (props) => {
 	const [state, dispatch] = useReducer(loaderReducer, initLoaderState);
@@ -35,6 +36,10 @@ const Layout = (props) => {
 							<Route path="/about" component={About} />
 							<Route path="/contest" component={Contest} />
 							<Route exact path="/login" component={Login} />
+							<Route
+								path="/register"
+								component={RegisterFormView}
+							/>
 							<Route
 								exact
 								path="/login-form"
