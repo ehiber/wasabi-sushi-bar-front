@@ -1,7 +1,9 @@
 import React from "react";
-import { Box, makeStyles, Button } from "@material-ui/core";
+import { Box, makeStyles, Typography } from "@material-ui/core";
+import PropTypes from "prop-types";
 import RegisterForm from "./components/forms/RegisterForm";
-import GoogleLogo from "../../../../dist/google.svg";
+import GoogleButton from "./GoogleButton";
+import PrevNavbar from "../PrevNavbar";
 
 const useStyles = makeStyles(() => ({
 	container: {
@@ -10,19 +12,18 @@ const useStyles = makeStyles(() => ({
 		backgroundColor: "black",
 		color: "white",
 		height: "100vh",
-		padding: "40px",
+		padding: "10px 10px 40px",
 	},
-	googleButton: {
-		display: "flex",
-		position: "relative",
-		backgroundColor: "rgba(255,255,255,0.50)",
-		borderRadius: "30px",
-		padding: "2px 40px 2px 10px",
+	mainContainer: {
+		rowGap: 10,
+		padding: "0px 30px",
 	},
-	googleImg: {
-		position: "absolute",
-		right: 2,
-		maxWidth: "40px",
+	title: {
+		color: "white",
+	},
+	mainText: {
+		color: "gray",
+		fontStyle: "italic",
 	},
 }));
 
@@ -37,22 +38,35 @@ const RegisterFormView = () => {
 			alignItems="center"
 			textAlign="center"
 		>
-			<div>
-				<h2>INGRESÁ TUS DATOS</h2>
-				<p>
+			<PrevNavbar navbarText={"REGISTRO"} />
+			<Box
+				display="flex"
+				flexDirection="column"
+				className={classes.mainContainer}
+			>
+				<Typography
+					variant="h2"
+					align="center"
+					className={classes.title}
+				>
+					INGRESÁ TUS DATOS
+				</Typography>
+				<Typography variant="p" className={classes.mainText}>
 					Ingresá una cuenta de correo electrónico y una contraseña.
 					La contraseña debe tener un mínimo de 5 caractéres
 					alfanuméricos
-				</p>
-				<RegisterForm />
-			</div>
+				</Typography>
+				<RegisterForm enterButton={"ACEPTAR"} />
+			</Box>
 
-			<div className={classes.googleButton}>
-				<Button>Registrate con</Button>
-				<img src={GoogleLogo} className={classes.googleImg} />
-			</div>
+			<GoogleButton btnText={"Registrar con"} />
 		</Box>
 	);
 };
 
+RegisterFormView.propTypes = {
+	btnText: PropTypes.string,
+	enterButton: PropTypes.string,
+	navbarText: PropTypes.string,
+};
 export default RegisterFormView;

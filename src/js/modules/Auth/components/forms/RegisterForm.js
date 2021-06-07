@@ -1,5 +1,13 @@
 import React from "react";
-import { TextField, makeStyles, Button } from "@material-ui/core";
+import PropTypes from "prop-types";
+import {
+	TextField,
+	makeStyles,
+	Button,
+	Typography,
+	Link,
+	Box,
+} from "@material-ui/core";
 
 const useStyles = makeStyles(() => ({
 	form: {
@@ -7,6 +15,7 @@ const useStyles = makeStyles(() => ({
 		flexDirection: "column",
 		rowGap: "10px",
 		alignItems: "center",
+		width: "100%",
 	},
 	input: {
 		width: "100%",
@@ -14,6 +23,7 @@ const useStyles = makeStyles(() => ({
 		[`& .MuiInputLabel-formControl`]: {
 			left: "50%",
 			transform: "translate(-50%, 100%)",
+			fontStyle: "italic",
 		},
 		[`& .MuiFormLabel-root.Mui-focused`]: {
 			visibility: "hidden",
@@ -32,34 +42,65 @@ const useStyles = makeStyles(() => ({
 		padding: "7px 30px 5px",
 		color: "white",
 		maxWidth: "150px",
+	},
+	text: {
+		color: "white",
+	},
+	linkContainer: {
+		display: "flex",
+		flexDirection: "column",
+		rowGap: 15,
 		marginTop: "50px",
+		fontStyle: "italic",
 	},
 }));
 
-const RegisterForm = (props) => {
+const RegisterForm = ({ login, enterButton }) => {
 	const classes = useStyles();
 
 	return (
 		<div>
 			<form className={classes.form} noValidate autoComplete="off">
-				<TextField
-					className={classes.input}
-					id="outlined-basic"
-					label="Correo"
-					variant="outlined"
-				/>
-				<TextField
-					className={classes.input}
-					id="outlined-basic"
-					label="Contraseña"
-					variant="outlined"
-				/>
+				<Box className={classes.form}>
+					<TextField
+						className={classes.input}
+						id="outlined-basic"
+						label="Correo"
+						variant="outlined"
+					/>
+					<TextField
+						className={classes.input}
+						id="outlined-basic"
+						label="Contraseña"
+						variant="outlined"
+					/>
+				</Box>
+
+				<Box className={classes.linkContainer}>
+					{login && (
+						<Typography>
+							<Link color="inherit">¿Olvidaste tu usuario?</Link>
+						</Typography>
+					)}
+					{login && (
+						<Typography>
+							<Link color="inherit">
+								¿Olvidaste tu contraseña?
+							</Link>
+						</Typography>
+					)}
+				</Box>
+
 				<Button variant="contained" className={classes.button}>
-					ACEPTAR
+					{enterButton}
 				</Button>
 			</form>
 		</div>
 	);
 };
 
+RegisterForm.propTypes = {
+	login: PropTypes.bool,
+	enterButton: PropTypes.string,
+};
 export default RegisterForm;
