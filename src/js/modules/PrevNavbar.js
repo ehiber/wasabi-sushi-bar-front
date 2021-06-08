@@ -2,6 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import { Typography, Box, makeStyles, Link } from "@material-ui/core";
 import ArrowBackIcon from "@material-ui/icons/ArrowBack";
+import { useHistory } from "react-router-dom";
 
 const useStyles = makeStyles(() => ({
 	container: {
@@ -17,10 +18,17 @@ const useStyles = makeStyles(() => ({
 
 const PrevNavbar = ({ navbarText }) => {
 	const classes = useStyles();
+	const history = useHistory();
 
 	return (
 		<Box className={classes.container}>
-			<Link href="javascript:history.back()" color="inherit">
+			<Link
+				href="#"
+				onClick={() => {
+					history.goBack();
+				}}
+				color="inherit"
+			>
 				<ArrowBackIcon />
 			</Link>
 			<Typography variant="h2" className={classes.title}>

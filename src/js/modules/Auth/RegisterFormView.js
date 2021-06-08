@@ -51,7 +51,7 @@ const RegisterFormView = () => {
 				>
 					INGRESÁ TUS DATOS
 				</Typography>
-				<Typography variant="p" className={classes.mainText}>
+				<Typography variant="body1" className={classes.mainText}>
 					Ingresá una cuenta de correo electrónico y una contraseña.
 					La contraseña debe tener un mínimo de 5 caractéres
 					alfanuméricos
