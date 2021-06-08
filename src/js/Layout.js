@@ -12,6 +12,7 @@ import Contest from "./modules/Contest";
 import Login from "./modules/Login";
 import LoginFormView from "./modules/Auth/LoginFormView";
 import RegisterFormView from "./modules/Auth/RegisterFormView";
+import PrincipalMenu from "./modules/PrincipalMenu";
 
 const Layout = (props) => {
 	const [state, dispatch] = useReducer(loaderReducer, initLoaderState);
@@ -44,6 +45,11 @@ const Layout = (props) => {
 								exact
 								path="/login-form"
 								component={LoginFormView}
+							/>
+							<Route
+								exact
+								path="/menu-principal"
+								component={PrincipalMenu}
 							/>
 							{/* <Route path="/admin/queue">
 								<Queue admin={true} />

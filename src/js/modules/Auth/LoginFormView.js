@@ -35,7 +35,7 @@ const LoginFormView = () => {
 			alignItems="center"
 			textAlign="center"
 		>
-			<PrevNavbar navbarText={"INICIO DE SESIÓN"} />
+			<PrevNavbar navbarText={"INICIO DE SESIÓN"} previewButton={true} />
 			<Box
 				display="flex"
 				flexDirection="column"
@@ -61,6 +61,7 @@ LoginFormView.propTypes = {
 	navbarText: PropTypes.string,
 	btnText: PropTypes.string,
 	enterButton: PropTypes.string,
+	previewButton: PropTypes.bool,
 };
 
 export default LoginFormView;

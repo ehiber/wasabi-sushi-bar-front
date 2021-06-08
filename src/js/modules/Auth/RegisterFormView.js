@@ -38,7 +38,7 @@ const RegisterFormView = () => {
 			alignItems="center"
 			textAlign="center"
 		>
-			<PrevNavbar navbarText={"REGISTRO"} />
+			<PrevNavbar navbarText={"REGISTRO"} previewButton={true} />
 			<Box
 				display="flex"
 				flexDirection="column"
@@ -68,5 +68,6 @@ RegisterFormView.propTypes = {
 	btnText: PropTypes.string,
 	enterButton: PropTypes.string,
 	navbarText: PropTypes.string,
+	previewButton: PropTypes.bool,
 };
 export default RegisterFormView;

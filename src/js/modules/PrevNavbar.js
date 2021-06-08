@@ -6,31 +6,40 @@ import { useHistory } from "react-router-dom";
 
 const useStyles = makeStyles(() => ({
 	container: {
-		width: "100%",
 		display: "flex",
+		alignItems: "center",
+		minHeight: 60,
+		width: "100%",
 		color: "white",
+		borderBottom: "2px solid white",
+		paddingLeft: 10,
+		paddingRight: 10,
 	},
 	title: {
+		position: "absolute",
+		left: "50%",
+		transform: "translateX(-50%)",
 		color: "inherit",
-		margin: "auto",
 	},
 }));
 
-const PrevNavbar = ({ navbarText }) => {
+const PrevNavbar = ({ navbarText, previewButton }) => {
 	const classes = useStyles();
 	const history = useHistory();
 
 	return (
 		<Box className={classes.container}>
-			<Link
-				href="#"
-				onClick={() => {
-					history.goBack();
-				}}
-				color="inherit"
-			>
-				<ArrowBackIcon />
-			</Link>
+			{previewButton && (
+				<Link
+					href="#"
+					onClick={() => {
+						history.goBack();
+					}}
+					color="inherit"
+				>
+					<ArrowBackIcon />
+				</Link>
+			)}
 			<Typography variant="h2" className={classes.title}>
 				{navbarText}
 			</Typography>
@@ -40,6 +49,7 @@ const PrevNavbar = ({ navbarText }) => {
 
 PrevNavbar.propTypes = {
 	navbarText: PropTypes.string,
+	previewButton: PropTypes.bool,
 };
 
 export default PrevNavbar;
