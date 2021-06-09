@@ -1,14 +1,14 @@
 import { createMuiTheme } from "@material-ui/core/styles";
-import { colors } from "./styles";
+import colors from "./styles";
 
-export const theme = createMuiTheme({
+const theme = createMuiTheme({
 	palette: {
 		common: {
 			white: colors.common.white,
 			black: colors.common.black,
 		},
 		background: {
-			default: colors.common.white,
+			default: colors.common.black,
 			paper: colors.common.white,
 		},
 		primary: {
@@ -27,7 +27,7 @@ export const theme = createMuiTheme({
 		},
 	},
 	typography: {
-		fontFamily: ["Helvetica", "sans-serif"].join(","),
+		fontFamily: ["Roboto", "sans-serif"].join(","),
 		h1: {
 			fontSize: "1.383rem",
 			fontWeight: 700,
@@ -105,3 +105,5 @@ export const theme = createMuiTheme({
 		},
 	},
 });
+
+export default theme;

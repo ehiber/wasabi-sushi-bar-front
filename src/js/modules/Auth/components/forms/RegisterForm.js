@@ -9,7 +9,7 @@ import {
 	Box,
 } from "@material-ui/core";
 
-const useStyles = makeStyles(() => ({
+const useStyles = makeStyles((theme) => ({
 	form: {
 		display: "flex",
 		flexDirection: "column",
@@ -24,6 +24,7 @@ const useStyles = makeStyles(() => ({
 			left: "50%",
 			transform: "translate(-50%, 100%)",
 			fontStyle: "italic",
+			color: theme.palette.text.secondary,
 		},
 		[`& .MuiFormLabel-root.Mui-focused`]: {
 			visibility: "hidden",
@@ -40,11 +41,11 @@ const useStyles = makeStyles(() => ({
 		backgroundColor: "rgba(0,100,0,0.5)",
 		borderRadius: "30px",
 		padding: "7px 30px 5px",
-		color: "white",
+		color: theme.palette.text.primary,
 		maxWidth: "150px",
 	},
 	text: {
-		color: "white",
+		color: theme.palette.text.primary,
 	},
 	linkContainer: {
 		display: "flex",

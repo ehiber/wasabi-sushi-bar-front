@@ -5,21 +5,20 @@ import RegisterForm from "./components/forms/RegisterForm";
 import GoogleButton from "./GoogleButton";
 import PrevNavbar from "../PrevNavbar";
 
-const useStyles = makeStyles(() => ({
+const useStyles = makeStyles((theme) => ({
 	container: {
 		display: "flex",
 		justifyContent: "space-between",
-		backgroundColor: "black",
-		color: "white",
 		height: "100vh",
 		padding: "10px 10px 40px",
+		backgroundColor: theme.palette.common.black,
 	},
 	mainContainer: {
 		rowGap: 10,
 		padding: "0px 30px",
 	},
 	title: {
-		color: "white",
+		color: theme.palette.text.primary,
 	},
 	mainText: {
 		color: "gray",
@@ -69,5 +68,6 @@ RegisterFormView.propTypes = {
 	enterButton: PropTypes.string,
 	navbarText: PropTypes.string,
 	previewButton: PropTypes.bool,
+	theme: PropTypes.object,
 };
 export default RegisterFormView;

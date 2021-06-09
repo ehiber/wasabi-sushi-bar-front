@@ -2,7 +2,7 @@ import { hot } from "react-hot-loader/root";
 import PropTypes from "prop-types";
 import React, { useState, useEffect, useReducer } from "react";
 import { ThemeProvider, CssBaseline } from "@material-ui/core";
-import { theme } from "./theme/index";
+import theme from "./theme/index";
 import Home from "./modules/Home";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 import About from "./modules/About";
@@ -42,12 +42,10 @@ const Layout = (props) => {
 								component={RegisterFormView}
 							/>
 							<Route
-								exact
 								path="/login-form"
 								component={LoginFormView}
 							/>
 							<Route
-								exact
 								path="/menu-principal"
 								component={PrincipalMenu}
 							/>
