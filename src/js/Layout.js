@@ -13,6 +13,7 @@ import Login from "./modules/Login";
 import LoginFormView from "./modules/Auth/LoginFormView";
 import RegisterFormView from "./modules/Auth/RegisterFormView";
 import PrincipalMenu from "./modules/PrincipalMenu";
+import DishesMenu from "./modules/DishesMenu";
 
 const Layout = (props) => {
 	const [state, dispatch] = useReducer(loaderReducer, initLoaderState);
@@ -49,6 +50,7 @@ const Layout = (props) => {
 								path="/menu-principal"
 								component={PrincipalMenu}
 							/>
+							<Route path="/menu-platos" component={DishesMenu} />
 							{/* <Route path="/admin/queue">
 								<Queue admin={true} />
 							</Route> */}

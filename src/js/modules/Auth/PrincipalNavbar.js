@@ -14,6 +14,9 @@ const useStyles = makeStyles((theme) => ({
 		[`& .MuiToolbar-root`]: {
 			justifyContent: "space-between",
 		},
+		[`& .MuiIconButton-root`]: {
+			fontSize: "1.3em",
+		},
 		[`& .MuiToolbar-regular`]: {
 			minHeight: 60,
 		},
