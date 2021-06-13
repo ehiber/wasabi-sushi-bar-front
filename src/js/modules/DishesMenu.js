@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import { Container, Box, makeStyles, Typography } from "@material-ui/core";
 import DishCard from "./DishCard";
-import PrincipalNavbar from "./Auth/PrincipalNavbar";
+import SideBar from "./SideBar";
 import PrevNavbar from "./PrevNavbar";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 
@@ -39,7 +39,7 @@ const DishesMenu = () => {
 
 	return (
 		<Box className={classes.root}>
-			<PrincipalNavbar />
+			<SideBar />
 			<PrevNavbar navbarText={"MAKIS"} previewButton={"true"} />
 			<Container className={classes.dishesView}>
 				<Box>

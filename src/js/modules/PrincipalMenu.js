@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { Box, makeStyles } from "@material-ui/core";
-import PrincipalNavbar from "./Auth/PrincipalNavbar";
+import SideBar from "./SideBar";
 import PrincipalMenuItem from "./PrincipalMenuItem";
 import PrevNavbar from "./PrevNavbar";
 
@@ -39,8 +39,12 @@ const PrincipalMenu = () => {
 
 	return (
 		<Box className={classes.container}>
-			<PrincipalNavbar />
-			<PrevNavbar navbarText={"MENÚ"} previewButton={false} />
+			<SideBar />
+			<PrevNavbar
+				navbarText={"MENÚ"}
+				previewButton={false}
+				background={"white"}
+			/>
 			<Box className={classes.itemContainer}>
 				{Object.keys(categories).map((item, index) => {
 					return (
@@ -61,6 +65,7 @@ PrincipalMenu.propTypes = {
 	image: PropTypes.string,
 	navbarText: PropTypes.string,
 	previewButton: PropTypes.bool,
+	background: PropTypes.string,
 };
 
 export default PrincipalMenu;
