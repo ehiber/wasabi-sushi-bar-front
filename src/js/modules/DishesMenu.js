@@ -40,7 +40,7 @@ const DishesMenu = () => {
 	return (
 		<Box className={classes.root}>
 			<SideBar />
-			<PrevNavbar navbarText={"MAKIS"} previewButton={"true"} />
+			<PrevNavbar navbarText={"MAKIS"} previewButton={true} />
 			<Container className={classes.dishesView}>
 				<Box>
 					<Typography
