@@ -2,6 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import { Typography, Box, makeStyles, Link } from "@material-ui/core";
 import ArrowBackIcon from "@material-ui/icons/ArrowBack";
+import CloseIcon from "@material-ui/icons/Close";
 import { useHistory } from "react-router-dom";
 
 const useStyles = makeStyles(() => ({
@@ -10,37 +11,51 @@ const useStyles = makeStyles(() => ({
 		alignItems: "center",
 		minHeight: 60,
 		width: "100%",
-		color: "white",
-		borderBottom: "2px solid white",
 		paddingLeft: 10,
 		paddingRight: 10,
+		borderBottomWidth: 1,
+		borderBottomStyle: "solid",
 	},
 	title: {
 		position: "absolute",
 		left: "50%",
 		transform: "translateX(-50%)",
-		color: "inherit",
+		whiteSpace: "nowrap",
 	},
 }));
 
-const PrevNavbar = ({ navbarText, previewButton }) => {
+const PrevNavbar = ({ navbarText, previewButton, closeButton, linkStyle }) => {
 	const classes = useStyles();
 	const history = useHistory();
 
 	return (
-		<Box className={classes.container}>
+		<Box className={`${linkStyle} ${classes.container}`}>
 			{previewButton && (
 				<Link
 					href="#"
+					className={linkStyle}
 					onClick={() => {
 						history.goBack();
 					}}
-					color="inherit"
 				>
 					<ArrowBackIcon />
 				</Link>
 			)}
-			<Typography variant="h2" className={classes.title}>
+			{closeButton && (
+				<Link
+					href="#"
+					className={linkStyle}
+					onClick={() => {
+						history.goBack();
+					}}
+				>
+					<CloseIcon />
+				</Link>
+			)}
+			<Typography
+				variant="h2"
+				className={`${classes.title} ${linkStyle}`}
+			>
 				{navbarText}
 			</Typography>
 		</Box>
@@ -50,6 +65,8 @@ const PrevNavbar = ({ navbarText, previewButton }) => {
 PrevNavbar.propTypes = {
 	navbarText: PropTypes.string,
 	previewButton: PropTypes.bool,
+	closeButton: PropTypes.bool,
+	linkStyle: PropTypes.string,
 };
 
 export default PrevNavbar;

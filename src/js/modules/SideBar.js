@@ -67,6 +67,7 @@ const useStyles = makeStyles((theme) => ({
 	},
 	logoCtn: {
 		width: "50%",
+		margin: "auto",
 	},
 	logoImg: {
 		width: "100%",

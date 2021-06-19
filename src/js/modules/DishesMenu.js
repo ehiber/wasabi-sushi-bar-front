@@ -40,7 +40,12 @@ const DishesMenu = () => {
 	return (
 		<Box className={classes.root}>
 			<SideBar />
-			<PrevNavbar navbarText={"MAKIS"} previewButton={true} />
+			<PrevNavbar
+				navbarText={"MAKIS"}
+				previewButton={true}
+				bgPrevBtn={"black"}
+				colorBorder={"white"}
+			/>
 			<Container className={classes.dishesView}>
 				<Box>
 					<Typography
@@ -64,6 +69,8 @@ const DishesMenu = () => {
 DishesMenu.propTypes = {
 	navbarText: PropTypes.string,
 	previewButton: PropTypes.bool,
+	bgPrevBtn: PropTypes.string,
+	colorBorder: PropTypes.string,
 };
 
 export default DishesMenu;
