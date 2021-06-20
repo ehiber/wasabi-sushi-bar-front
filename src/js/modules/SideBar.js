@@ -32,9 +32,6 @@ const useStyles = makeStyles((theme) => ({
 			fontSize: "2em",
 		},
 	},
-	menuButton: {
-		marginRight: theme.spacing(2),
-	},
 	title: {
 		flexGrow: 1,
 	},
@@ -67,6 +64,7 @@ const useStyles = makeStyles((theme) => ({
 	},
 	logoCtn: {
 		width: "50%",
+		margin: "auto",
 	},
 	logoImg: {
 		width: "100%",
@@ -92,16 +90,10 @@ export default function SideBar() {
 						color="inherit"
 						edge="start"
 						aria-label="menu"
-						className={classes.menuButton}
 					>
 						<MenuIcon />
 					</IconButton>
-					<IconButton
-						color="inherit"
-						edge="start"
-						aria-label="cart"
-						className={classes.menuButton}
-					>
+					<IconButton color="inherit" edge="start" aria-label="cart">
 						<ShoppingCartIcon />
 					</IconButton>
 				</Toolbar>
@@ -151,15 +143,12 @@ export default function SideBar() {
 						Historial de Compras
 					</NavLink>
 					<NavLink to="/" className={classes.navigationItem}>
-						Mis Favoritos
-					</NavLink>
-					<NavLink to="/" className={classes.navigationItem}>
 						Invitá a tus amigos
 					</NavLink>
-					<NavLink to="/" className={classes.navigationItem}>
+					<NavLink to="/ayuda" className={classes.navigationItem}>
 						Ayuda
 					</NavLink>
-					<NavLink to="/" className={classes.navigationItem}>
+					<NavLink to="/nosotros" className={classes.navigationItem}>
 						Nosotros
 					</NavLink>
 					<NavLink to="/login" className={classes.navigationItem}>

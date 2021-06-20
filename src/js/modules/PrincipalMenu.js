@@ -5,12 +5,10 @@ import SideBar from "./SideBar";
 import PrincipalMenuItem from "./PrincipalMenuItem";
 import PrevNavbar from "./PrevNavbar";
 
-const useStyles = makeStyles(() => ({
+const useStyles = makeStyles((theme) => ({
 	container: {
 		display: "flex",
 		flexDirection: "column",
-		backgroundColor: "black",
-		color: "white",
 		height: "100vh",
 	},
 	itemContainer: {
@@ -22,36 +20,67 @@ const useStyles = makeStyles(() => ({
 		justifyContent: "space-evenly",
 		padding: 10,
 	},
+	prevNavbar: {
+		color: theme.palette.text.primary,
+	},
 }));
 
 const PrincipalMenu = () => {
 	const classes = useStyles();
 
-	const categories = {
-		Entradas: "",
-		Makis: "",
-		"Makis tempuras": "",
-		Nuevos: "",
-		Combinados: "",
-		Especiales: "",
-		Bebidas: "",
-	};
+	const categories = [
+		{
+			id: 1,
+			label: "Entradas",
+			image: "",
+		},
+		{
+			id: 2,
+			label: "Makis",
+			image: "",
+		},
+		{
+			id: 3,
+			label: "Makis tempuras",
+			image: "",
+		},
+		{
+			id: 4,
+			label: "Nuevos",
+			image: "",
+		},
+		{
+			id: 5,
+			label: "Combinados",
+			image: "",
+		},
+		{
+			id: 6,
+			label: "Especiales",
+			image: "",
+		},
+		{
+			id: 7,
+			label: "Bebidas",
+			image: "",
+		},
+	];
 
 	return (
 		<Box className={classes.container}>
 			<SideBar />
 			<PrevNavbar
 				navbarText={"MENÚ"}
+				linkStyle={classes.prevNavbar}
 				previewButton={false}
-				background={"white"}
 			/>
 			<Box className={classes.itemContainer}>
-				{Object.keys(categories).map((item, index) => {
+				{categories.map((category) => {
 					return (
 						<PrincipalMenuItem
-							key={index}
-							title={item}
-							image={item[index]}
+							key={category.id}
+							title={category.label}
+							image={category.image}
 						/>
 					);
 				})}
@@ -65,7 +94,7 @@ PrincipalMenu.propTypes = {
 	image: PropTypes.string,
 	navbarText: PropTypes.string,
 	previewButton: PropTypes.bool,
-	background: PropTypes.string,
+	linkStyle: PropTypes.string,
 };
 
 export default PrincipalMenu;

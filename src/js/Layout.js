@@ -15,6 +15,10 @@ import RegisterFormView from "./modules/Auth/RegisterFormView";
 import PrincipalMenu from "./modules/PrincipalMenu";
 import DishesMenu from "./modules/DishesMenu";
 import PersonalData from "./modules/User/PersonalData";
+import HelpView from "./modules/HelpView";
+import Questions from "./modules/Questions";
+import Privacy from "./modules/Privacy";
+import PrivacyPage from "./modules/PrivacyPage";
 
 const Layout = (props) => {
 	const [state, dispatch] = useReducer(loaderReducer, initLoaderState);
@@ -36,7 +40,7 @@ const Layout = (props) => {
 					{state.viewIsReady ? (
 						<Switch>
 							<Route exact path="/" component={Home} />
-							<Route path="/about" component={About} />
+							<Route path="/nosotros" component={About} />
 							<Route path="/contest" component={Contest} />
 							<Route exact path="/login" component={Login} />
 							<Route
@@ -56,6 +60,16 @@ const Layout = (props) => {
 							<Route
 								path="/personal-data"
 								component={PersonalData}
+							/>
+							<Route path="/ayuda" component={HelpView}/>
+							<Route
+								path="/preguntas-frecuentes"
+								component={Questions}
+							/>
+							<Route path="/privacidad" component={Privacy} />
+							<Route
+								path="/politicas-de-privacidad"
+								component={PrivacyPage}
 							/>
 							{/* <Route path="/admin/queue">
 								<Queue admin={true} />
