@@ -10,7 +10,6 @@ const useStyles = makeStyles((theme) => ({
 		backgroundColor: theme.palette.background.paper,
 	},
 	prevNavbar: {
-		backgroundColor: theme.palette.background.paper,
 		color: theme.palette.text.secondary,
 	},
 }));
@@ -52,7 +51,7 @@ const Privacy = ({ linkStyle }) => {
 	];
 
 	return (
-		<Box>
+		<Box className={classes.container}>
 			<Sidebar />
 			<PrevNavbar
 				navbarText={"PRIVACIDAD"}

@@ -21,8 +21,7 @@ const useStyles = makeStyles((theme) => ({
 		padding: 10,
 	},
 	prevNavbar: {
-		backgroundColor: "black",
-		color: "white",
+		color: theme.palette.text.primary,
 	},
 }));
 

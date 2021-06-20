@@ -4,7 +4,7 @@ import { Container, Box, makeStyles, Typography } from "@material-ui/core";
 import DishCard from "./DishCard";
 import SideBar from "./SideBar";
 import PrevNavbar from "./PrevNavbar";
-import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
+import ExpandMore from "./ExpandMore";
 
 const useStyles = makeStyles((theme) => ({
 	root: {
@@ -15,6 +15,9 @@ const useStyles = makeStyles((theme) => ({
 		flexDirection: "column",
 		rowGap: 20,
 	},
+	prevNavbar: {
+		color: theme.palette.text.primary,
+	},
 	menuTitle: {
 		backgroundColor: theme.palette.primary.main,
 		fontWeight: "bold",
@@ -23,14 +26,6 @@ const useStyles = makeStyles((theme) => ({
 	},
 	dishCardCtn: {
 		width: "100%",
-	},
-	arrowIcon: {
-		position: "absolute",
-		bottom: 10,
-		left: "50%",
-		transform: "translateX(-50%)",
-		fontSize: 50,
-		zIndex: 1000,
 	},
 }));
 
@@ -43,8 +38,7 @@ const DishesMenu = () => {
 			<PrevNavbar
 				navbarText={"MAKIS"}
 				previewButton={true}
-				bgPrevBtn={"black"}
-				colorBorder={"white"}
+				linkStyle={classes.prevNavbar}
 			/>
 			<Container className={classes.dishesView}>
 				<Box>
@@ -61,7 +55,7 @@ const DishesMenu = () => {
 				</Box>
 			</Container>
 
-			<ExpandMoreIcon className={classes.arrowIcon} />
+			<ExpandMore />
 		</Box>
 	);
 };
@@ -69,8 +63,7 @@ const DishesMenu = () => {
 DishesMenu.propTypes = {
 	navbarText: PropTypes.string,
 	previewButton: PropTypes.bool,
-	bgPrevBtn: PropTypes.string,
-	colorBorder: PropTypes.string,
+	linkStyle: PropTypes.object,
 };
 
 export default DishesMenu;

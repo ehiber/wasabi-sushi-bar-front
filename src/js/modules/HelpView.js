@@ -10,8 +10,8 @@ const useStyles = makeStyles((theme) => ({
 	container: {
 		backgroundColor: theme.palette.background.paper,
 	},
+	pageContent: {},
 	prevNavbar: {
-		backgroundColor: theme.palette.background.paper,
 		color: theme.palette.text.secondary,
 	},
 }));
@@ -48,14 +48,16 @@ const HelpView = ({ linkStyle }) => {
 	];
 
 	return (
-		<Box>
+		<Box className={classes.container}>
 			<Sidebar />
-			<PrevNavbar
-				navbarText={"AYUDA"}
-				closeButton={true}
-				linkStyle={classes.prevNavbar}
-			/>
-			<InfoItemView links={helpQuestions} />
+			<Box className={classes.pageContent}>
+				<PrevNavbar
+					navbarText={"AYUDA"}
+					closeButton={true}
+					linkStyle={classes.prevNavbar}
+				/>
+				<InfoItemView links={helpQuestions} />
+			</Box>
 		</Box>
 	);
 };

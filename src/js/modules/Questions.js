@@ -10,7 +10,6 @@ const useStyles = makeStyles((theme) => ({
 		backgroundColor: theme.palette.background.paper,
 	},
 	prevNavbar: {
-		backgroundColor: theme.palette.background.paper,
 		color: theme.palette.text.secondary,
 	},
 }));
@@ -62,7 +61,7 @@ const Questions = ({ linkStyle }) => {
 	];
 
 	return (
-		<Box>
+		<Box className={classes.container}>
 			<Sidebar />
 			<PrevNavbar
 				navbarText={"PREGUNTAS FRECUENTES"}

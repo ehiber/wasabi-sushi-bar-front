@@ -39,7 +39,7 @@ const Layout = (props) => {
 					{state.viewIsReady ? (
 						<Switch>
 							<Route exact path="/" component={Home} />
-							<Route path="/about" component={About} />
+							<Route path="/nosotros" component={About} />
 							<Route path="/contest" component={Contest} />
 							<Route exact path="/login" component={Login} />
 							<Route

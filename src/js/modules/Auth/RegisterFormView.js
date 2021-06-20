@@ -13,6 +13,9 @@ const useStyles = makeStyles((theme) => ({
 		padding: "10px 10px 40px",
 		backgroundColor: theme.palette.common.black,
 	},
+	prevNavbar: {
+		color: theme.palette.text.primary,
+	},
 	mainContainer: {
 		rowGap: 10,
 		padding: "0px 30px",
@@ -37,7 +40,11 @@ const RegisterFormView = () => {
 			alignItems="center"
 			textAlign="center"
 		>
-			<PrevNavbar navbarText={"REGISTRO"} previewButton={true} />
+			<PrevNavbar
+				navbarText={"REGISTRO"}
+				previewButton={true}
+				linkStyle={classes.prevNavbar}
+			/>
 			<Box
 				display="flex"
 				flexDirection="column"
@@ -68,6 +75,7 @@ RegisterFormView.propTypes = {
 	enterButton: PropTypes.string,
 	navbarText: PropTypes.string,
 	previewButton: PropTypes.bool,
+	linkStyle: PropTypes.object,
 	theme: PropTypes.object,
 };
 export default RegisterFormView;
