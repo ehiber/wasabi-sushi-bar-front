@@ -8,20 +8,23 @@ const useStyles = makeStyles((theme) => ({
 		display: "flex",
 		flexDirection: "column",
 		backgroundColor: theme.palette.background.paper,
+		padding: "10px 0px",
 	},
 	link: {
 		display: "flex",
 		justifyContent: "space-between",
-		borderTop: "1px solid black",
-		borderCollapse: "collapse",
 		padding: "15px 10px 15px 20px",
 	},
 	text: {
 		color: theme.palette.text.secondary,
 	},
+	conditionalText: {
+		color: "red",
+		fontSize: "1rem",
+	},
 }));
 
-const InfoItemView = ({ links }) => {
+const InfoItemView = ({ links, border }) => {
 	const classes = useStyles();
 
 	return (
@@ -31,9 +34,16 @@ const InfoItemView = ({ links }) => {
 					<Link
 						key={link.id}
 						href={link.url}
-						className={classes.link}
+						className={`${classes.link} ${border}`}
 					>
-						<Typography variant="inherit" className={classes.text}>
+						<Typography
+							variant="inherit"
+							className={
+								link.label === "Cerrar Sesión"
+									? classes.conditionalText
+									: classes.text
+							}
+						>
 							{link.label}
 						</Typography>
 
@@ -47,6 +57,7 @@ const InfoItemView = ({ links }) => {
 
 InfoItemView.propTypes = {
 	links: PropTypes.array,
+	border: PropTypes.object,
 };
 
 export default InfoItemView;

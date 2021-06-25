@@ -12,6 +12,10 @@ const useStyles = makeStyles((theme) => ({
 	prevNavbar: {
 		color: theme.palette.text.secondary,
 	},
+	pageContent: {
+		borderTop: "1px solid black",
+		borderCollapse: "collapse",
+	},
 }));
 
 const Questions = ({ linkStyle }) => {
@@ -68,7 +72,7 @@ const Questions = ({ linkStyle }) => {
 				closeButton={true}
 				linkStyle={classes.prevNavbar}
 			/>
-			<InfoItemView links={Questions} />
+			<InfoItemView links={Questions} border={classes.pageContent} />
 		</Box>
 	);
 };
@@ -80,6 +84,7 @@ Questions.propTypes = {
 	colorBorder: PropTypes.string,
 	linkStyle: PropTypes.object,
 	links: PropTypes.array,
+	border: PropTypes.object,
 };
 
 export default Questions;
