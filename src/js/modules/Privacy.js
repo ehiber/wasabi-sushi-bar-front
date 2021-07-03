@@ -12,6 +12,10 @@ const useStyles = makeStyles((theme) => ({
 	prevNavbar: {
 		color: theme.palette.text.secondary,
 	},
+	pageContent: {
+		borderTop: "1px solid black",
+		borderCollapse: "collapse",
+	},
 }));
 
 const Privacy = ({ linkStyle }) => {
@@ -58,7 +62,7 @@ const Privacy = ({ linkStyle }) => {
 				closeButton={true}
 				linkStyle={classes.prevNavbar}
 			/>
-			<InfoItemView links={privacyInfo} />
+			<InfoItemView links={privacyInfo} border={classes.pageContent} />
 		</Box>
 	);
 };
@@ -68,6 +72,7 @@ Privacy.propTypes = {
 	closeButton: PropTypes.bool,
 	linkStyle: PropTypes.object,
 	links: PropTypes.array,
+	border: PropTypes.object,
 };
 
 export default Privacy;

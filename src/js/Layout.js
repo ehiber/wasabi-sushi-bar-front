@@ -19,6 +19,7 @@ import HelpView from "./modules/HelpView";
 import Questions from "./modules/Questions";
 import Privacy from "./modules/Privacy";
 import PrivacyPage from "./modules/PrivacyPage";
+import MyAccount from "./modules/MyAccount";
 
 const Layout = (props) => {
 	const [state, dispatch] = useReducer(loaderReducer, initLoaderState);
@@ -56,6 +57,8 @@ const Layout = (props) => {
 								component={PrincipalMenu}
 							/>
 							<Route path="/menu-platos" component={DishesMenu} />
+							<Route path="/mi-cuenta" component={MyAccount} />
+							<Route path="/ayuda" component={HelpView} />
 
 							<Route
 								path="/personal-data"
