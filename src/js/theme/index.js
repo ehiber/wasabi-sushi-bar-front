@@ -77,6 +77,16 @@ const theme = createMuiTheme({
 		},
 	},
 	overrides: {
+		MuiCssBaseline: {
+			"@global": {
+				html: {
+					WebkitFontSmoothing: "auto",
+				},
+				body: {
+					color: colors.common.black,
+				},
+			},
+		},
 		MuiButton: {
 			root: {
 				textTransform: "none",

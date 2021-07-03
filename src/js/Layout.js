@@ -14,6 +14,7 @@ import LoginFormView from "./modules/Auth/LoginFormView";
 import RegisterFormView from "./modules/Auth/RegisterFormView";
 import PrincipalMenu from "./modules/PrincipalMenu";
 import DishesMenu from "./modules/DishesMenu";
+import PersonalData from "./modules/User/PersonalData";
 import HelpView from "./modules/HelpView";
 import Questions from "./modules/Questions";
 import Privacy from "./modules/Privacy";
@@ -58,6 +59,12 @@ const Layout = (props) => {
 							<Route path="/menu-platos" component={DishesMenu} />
 							<Route path="/mi-cuenta" component={MyAccount} />
 							<Route path="/ayuda" component={HelpView} />
+
+							<Route
+								path="/personal-data"
+								component={PersonalData}
+							/>
+							<Route path="/ayuda" component={HelpView}/>
 							<Route
 								path="/preguntas-frecuentes"
 								component={Questions}
