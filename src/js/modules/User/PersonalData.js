@@ -50,7 +50,6 @@ const PersonalData = () => {
 	const classes = useStyles();
 	const { push } = useHistory();
 
-
 	const { handleSubmit, control, errors } = useForm({
 		defaultValues: {
 			email: "",
