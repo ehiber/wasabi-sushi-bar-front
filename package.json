@@ -1,7 +1,7 @@
 {
-  "name": "ready-react",
+  "name": "WasabiSushi",
   "version": "1.0.0",
-  "description": "simple boilerplate for react app.",
+  "description": "",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -9,15 +9,20 @@
     "gitpod": "webpack-dev-server --config config/webpack-gitpod-config.js",
     "build": "webpack --config config/webpack-prod-config.js"
   },
-  "author": "Ernesto Medina",
+  "author": "Ehiber Graterol",
   "license": "MIT",
   "dependencies": {
     "@babel/runtime": "^7.10.5",
+    "@hookform/error-message": "^2.0.0",
     "@hot-loader/react-dom": "^16.13.0",
+    "@material-ui/core": "^4.11.4",
+    "@material-ui/icons": "^4.11.2",
     "bootstrap": "^4.5.0",
+    "material-ui-icons": "^1.0.0-beta.36",
     "prop-types": "^15.7.2",
-    "react": "^16.13.1",
+    "react": "^17.0.2",
     "react-bootstrap": "^1.2.2",
+    "react-hook-form": "^7.6.5",
     "react-hot-loader": "^4.12.21",
     "react-router-dom": "^5.2.0"
   },
