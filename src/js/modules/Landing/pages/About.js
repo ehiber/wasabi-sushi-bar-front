@@ -1,10 +1,10 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { Box, makeStyles, Container, Typography } from "@material-ui/core";
-import Sidebar from "./SideBar";
-import PrevNavbar from "./PrevNavbar";
-import Logo from "../../../dist/screenshot-without-bg.png";
-import ExpandMore from "./ExpandMore";
+import Sidebar from "../../../common/SideBar";
+import PrevNavbar from "../../../common/PrevNavbar";
+import Logo from "../../../../../dist/screenshot-without-bg.png";
+import ExpandMore from "../../../common/ExpandMore";
 
 const useStyles = makeStyles((theme) => ({
 	container: {

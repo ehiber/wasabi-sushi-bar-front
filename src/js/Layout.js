@@ -1,25 +1,23 @@
+import React, { useState, useEffect, useReducer } from "react";
 import { hot } from "react-hot-loader/root";
 import PropTypes from "prop-types";
-import React, { useState, useEffect, useReducer } from "react";
 import { ThemeProvider, CssBaseline } from "@material-ui/core";
 import theme from "./theme/index";
-import Home from "./modules/Home";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
-import About from "./modules/About";
+import About from "./modules/Landing/pages/About";
 import AppContextProvider from "./contexts/AppContext";
 import loaderReducer, { initLoaderState } from "./reducers/loaderReducer";
-import Contest from "./modules/Contest";
-import Login from "./modules/Login";
+import Home from "./modules/Landing/pages/Home";
 import LoginFormView from "./modules/Auth/LoginFormView";
 import RegisterFormView from "./modules/Auth/RegisterFormView";
-import PrincipalMenu from "./modules/PrincipalMenu";
-import DishesMenu from "./modules/DishesMenu";
+import PrincipalMenu from "./modules/Food/PrincipalMenu";
+import DishesMenu from "./modules/Food/DishesMenu";
 import PersonalData from "./modules/User/PersonalData";
-import HelpView from "./modules/HelpView";
-import Questions from "./modules/Questions";
-import Privacy from "./modules/Privacy";
-import PrivacyPage from "./modules/PrivacyPage";
-import MyAccount from "./modules/MyAccount";
+import HelpView from "./modules/Landing/pages/HelpView";
+import Questions from "./modules/Landing/pages/Questions";
+import Privacy from "./modules/Landing/pages/Privacy";
+import PrivacyPage from "./modules/Landing/pages/PrivacyPage";
+import MyAccount from "./modules/User/MyAccount";
 
 const Layout = (props) => {
 	const [state, dispatch] = useReducer(loaderReducer, initLoaderState);
@@ -42,8 +40,6 @@ const Layout = (props) => {
 						<Switch>
 							<Route exact path="/" component={Home} />
 							<Route path="/nosotros" component={About} />
-							<Route path="/contest" component={Contest} />
-							<Route exact path="/login" component={Login} />
 							<Route
 								path="/register"
 								component={RegisterFormView}
@@ -64,7 +60,7 @@ const Layout = (props) => {
 								path="/personal-data"
 								component={PersonalData}
 							/>
-							<Route path="/ayuda" component={HelpView}/>
+							<Route path="/ayuda" component={HelpView} />
 							<Route
 								path="/preguntas-frecuentes"
 								component={Questions}
@@ -74,12 +70,9 @@ const Layout = (props) => {
 								path="/politicas-de-privacidad"
 								component={PrivacyPage}
 							/>
-							{/* <Route path="/admin/queue">
-								<Queue admin={true} />
-							</Route> */}
 						</Switch>
 					) : (
-						<div className="view-loader"></div>
+						<div className=""></div>
 					)}
 				</AppContextProvider>
 			</BrowserRouter>

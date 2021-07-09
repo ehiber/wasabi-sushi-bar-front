@@ -1,6 +1,6 @@
 import React from "react";
 import { Box, Button, Grid, makeStyles, Typography } from "@material-ui/core";
-import { theme } from "../theme";
+import { theme } from "../../../theme";
 
 const useStyles = makeStyles((theme) => ({
 	buttons: {
@@ -9,6 +9,9 @@ const useStyles = makeStyles((theme) => ({
 	},
 	buttonLogin: {
 		marginTop: theme.spacing(2),
+		backgroundColor: theme.palette.common.black,
+		color: theme.palette.common.white,
+		// pointerEvents: "none",
 	},
 	upperBox: {
 		minHeight: "75%",
@@ -26,10 +29,11 @@ const useStyles = makeStyles((theme) => ({
 		textAlign: "center",
 	},
 	registerBox: {
-		padding: "3%",
+		padding: theme.spacing(2),
 	},
 	text: {
 		marginBottom: theme.spacing(2),
+		color: theme.palette.common.white,
 	},
 	wrapLine: {
 		width: "180px",
@@ -49,7 +53,7 @@ const useStyles = makeStyles((theme) => ({
 	},
 }));
 
-const Login = () => {
+const Home = () => {
 	const classes = useStyles();
 
 	return (
@@ -67,11 +71,7 @@ const Login = () => {
 					<Typography className={classes.text}>
 						Creá tu cuenta
 					</Typography>
-					<Button
-						color={"primary"}
-						className={classes.buttons}
-						variant="contained"
-					>
+					<Button className={classes.buttons} variant="contained">
 						Registrate
 					</Button>
 				</Grid>
@@ -93,4 +93,4 @@ const Login = () => {
 	);
 };
 
-export default Login;
+export default Home;
