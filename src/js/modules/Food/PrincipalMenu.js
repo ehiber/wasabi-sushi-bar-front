@@ -1,9 +1,9 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { Box, makeStyles } from "@material-ui/core";
-import SideBar from "./SideBar";
+import SideBar from "../../common/SideBar";
 import PrincipalMenuItem from "./PrincipalMenuItem";
-import PrevNavbar from "./PrevNavbar";
+import PrevNavbar from "../../common/PrevNavbar";
 
 const useStyles = makeStyles((theme) => ({
 	container: {

@@ -1,6 +1,6 @@
 import React from "react";
 import { Box, Button, Grid, makeStyles, Typography } from "@material-ui/core";
-import { theme } from "../theme";
+import { theme } from "../../../theme";
 
 const useStyles = makeStyles((theme) => ({
 	buttons: {
@@ -49,7 +49,7 @@ const useStyles = makeStyles((theme) => ({
 	},
 }));
 
-const Login = () => {
+const Home = () => {
 	const classes = useStyles();
 
 	return (
@@ -93,4 +93,4 @@ const Login = () => {
 	);
 };
 
-export default Login;
+export default Home;
