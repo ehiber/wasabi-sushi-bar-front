@@ -10,7 +10,10 @@ const useStyles = makeStyles((theme) => ({
 	container: {
 		backgroundColor: theme.palette.background.paper,
 	},
-	pageContent: {},
+	pageContent: {
+		borderTop: "1px solid black",
+		borderCollapse: "collapse",
+	},
 	prevNavbar: {
 		color: theme.palette.text.secondary,
 	},
@@ -56,7 +59,10 @@ const HelpView = ({ linkStyle }) => {
 					closeButton={true}
 					linkStyle={classes.prevNavbar}
 				/>
-				<InfoItemView links={helpQuestions} />
+				<InfoItemView
+					links={helpQuestions}
+					border={classes.pageContent}
+				/>
 			</Box>
 		</Box>
 	);
@@ -69,6 +75,7 @@ HelpView.propTypes = {
 	colorBorder: PropTypes.string,
 	linkStyle: PropTypes.object,
 	links: PropTypes.array,
+	border: PropTypes.object,
 };
 
 export default HelpView;

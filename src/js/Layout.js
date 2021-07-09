@@ -18,6 +18,8 @@ import Questions from "./modules/Landing/pages/Questions";
 import Privacy from "./modules/Landing/pages/Privacy";
 import PrivacyPage from "./modules/Landing/pages/PrivacyPage";
 
+import MyAccount from "./modules/User/MyAccount";
+
 const Layout = (props) => {
 	const [state, dispatch] = useReducer(loaderReducer, initLoaderState);
 	useEffect(() => {
@@ -52,6 +54,8 @@ const Layout = (props) => {
 								component={PrincipalMenu}
 							/>
 							<Route path="/menu-platos" component={DishesMenu} />
+							<Route path="/mi-cuenta" component={MyAccount} />
+							<Route path="/ayuda" component={HelpView} />
 
 							<Route
 								path="/personal-data"

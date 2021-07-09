@@ -82,7 +82,7 @@ export default function SideBar() {
 	};
 
 	return (
-		<div className={classes.root}>
+		<Box className={classes.root}>
 			<AppBar position="static">
 				<Toolbar>
 					<IconButton
@@ -163,6 +163,6 @@ export default function SideBar() {
 					<img src={Logo} className={classes.logoImg}></img>
 				</Box>
 			</Drawer>
-		</div>
+		</Box>
 	);
 }
