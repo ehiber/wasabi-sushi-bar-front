@@ -9,6 +9,27 @@ import {
 	Box,
 } from "@material-ui/core";
 
+import ForgotPassword from "../modal/ForgotPassword";
+
+const ModalText = () => {
+	return (
+		<Typography variant="body1">
+			Te enviaremos un código de vertificación a tu teléfono por mensaje
+			de texto
+		</Typography>
+	);
+};
+
+const ModalInput = () => {
+	return (
+		<TextField
+			error
+			id="standard-error-helper-text"
+			helperText="ERROR: Código incorrecto"
+		/>
+	);
+};
+
 const useStyles = makeStyles((theme) => ({
 	form: {
 		display: "flex",
@@ -22,7 +43,8 @@ const useStyles = makeStyles((theme) => ({
 		maxWidth: "400px",
 		[`& .MuiInputLabel-formControl`]: {
 			left: "50%",
-			transform: "translate(-50%, 100%)",
+			top: "50%",
+			transform: "translate(-50%, -50%)",
 			fontStyle: "italic",
 			color: theme.palette.text.secondary,
 		},
@@ -33,7 +55,7 @@ const useStyles = makeStyles((theme) => ({
 			backgroundColor: "#f2f2f2",
 			borderRadius: "30px",
 			[`& .MuiOutlinedInput-input`]: {
-				padding: "15px 14px",
+				padding: "10px 14px",
 			},
 		},
 	},
@@ -59,6 +81,16 @@ const useStyles = makeStyles((theme) => ({
 const RegisterForm = ({ login, enterButton }) => {
 	const classes = useStyles();
 
+	const [open, setOpen] = React.useState(false);
+
+	const handleClickOpen = () => {
+		setOpen(true);
+	};
+
+	const handleClose = () => {
+		setOpen(false);
+	};
+
 	return (
 		<div>
 			<form className={classes.form} noValidate autoComplete="off">
@@ -79,16 +111,25 @@ const RegisterForm = ({ login, enterButton }) => {
 
 				<Box className={classes.linkContainer}>
 					{login && (
-						<Typography>
-							<Link color="inherit">¿Olvidaste tu usuario?</Link>
-						</Typography>
-					)}
-					{login && (
-						<Typography>
-							<Link color="inherit">
-								¿Olvidaste tu contraseña?
-							</Link>
-						</Typography>
+						<Box>
+							<Typography>
+								<Link color="inherit" onClick={handleClickOpen}>
+									¿Olvidaste tu usuario?
+								</Link>
+							</Typography>
+							<Typography>
+								<Link color="inherit" onClick={handleClickOpen}>
+									¿Olvidaste tu contraseña?
+								</Link>
+							</Typography>
+							<ForgotPassword
+								open={open}
+								handleClose={handleClose}
+								handleClickOpen={handleClickOpen}
+								paragraphText={<ModalText />}
+								inputText={<ModalInput />}
+							/>
+						</Box>
 					)}
 				</Box>
 
@@ -103,5 +144,9 @@ const RegisterForm = ({ login, enterButton }) => {
 RegisterForm.propTypes = {
 	login: PropTypes.bool,
 	enterButton: PropTypes.string,
+	handleClose: PropTypes.func,
+	handleClickOpen: PropTypes.func,
+	paragraphText: PropTypes.node,
+	inputText: PropTypes.node,
 };
 export default RegisterForm;

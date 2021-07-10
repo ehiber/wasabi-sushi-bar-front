@@ -4,15 +4,18 @@ import PropTypes from "prop-types";
 import RegisterForm from "./components/forms/RegisterForm";
 import GoogleButton from "./GoogleButton";
 import PrevNavbar from "../PrevNavbar";
+import Logo from "../../../../dist/screenshot-without-bg.png";
 
 const useStyles = makeStyles((theme) => ({
 	container: {
 		display: "flex",
-		justifyContent: "space-between",
 		backgroundColor: theme.palette.common.black,
 		color: theme.palette.text.primary,
 		height: "100vh",
-		padding: "10px 10px 40px",
+	},
+	prevNavbar: {
+		color: theme.palette.text.primary,
+		borderBottomWidth: 0,
 	},
 	mainContainer: {
 		rowGap: 10,
@@ -21,6 +24,15 @@ const useStyles = makeStyles((theme) => ({
 	},
 	title: {
 		color: theme.palette.text.primary,
+	},
+	logoCtn: {
+		width: "70%",
+		maxWidth: "300px",
+		margin: "auto",
+	},
+	logoImg: {
+		width: "100%",
+		margin: "auto",
 	},
 }));
 
@@ -35,12 +47,19 @@ const LoginFormView = () => {
 			alignItems="center"
 			textAlign="center"
 		>
-			<PrevNavbar navbarText={"INICIO DE SESIÓN"} previewButton={true} />
+			<PrevNavbar
+				navbarText={"INICIO DE SESIÓN"}
+				previewButton={true}
+				linkStyle={classes.prevNavbar}
+			/>
 			<Box
 				display="flex"
 				flexDirection="column"
 				className={classes.mainContainer}
 			>
+				<Box className={classes.logoCtn}>
+					<img src={Logo} className={classes.logoImg}></img>
+				</Box>
 				<Typography
 					variant="h2"
 					align="center"
@@ -59,6 +78,7 @@ const LoginFormView = () => {
 LoginFormView.propTypes = {
 	login: PropTypes.bool,
 	navbarText: PropTypes.string,
+	linkStyle: PropTypes.object,
 	btnText: PropTypes.string,
 	enterButton: PropTypes.string,
 	previewButton: PropTypes.bool,
