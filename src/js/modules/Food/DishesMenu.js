@@ -2,9 +2,9 @@ import React from "react";
 import PropTypes from "prop-types";
 import { Container, Box, makeStyles, Typography } from "@material-ui/core";
 import DishCard from "./DishCard";
-import SideBar from "./SideBar";
-import PrevNavbar from "./PrevNavbar";
-import ExpandMore from "./ExpandMore";
+import SideBar from "../../common/SideBar";
+import PrevNavbar from "../../common/PrevNavbar";
+import ExpandMore from "../../common/ExpandMore";
 
 const useStyles = makeStyles((theme) => ({
 	root: {
@@ -16,7 +16,7 @@ const useStyles = makeStyles((theme) => ({
 		rowGap: 20,
 	},
 	prevNavbar: {
-		color: theme.palette.text.primary,
+		color: theme.palette.common.white,
 	},
 	menuTitle: {
 		backgroundColor: theme.palette.primary.main,

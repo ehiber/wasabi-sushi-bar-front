@@ -3,7 +3,7 @@ import { Box, makeStyles, Typography } from "@material-ui/core";
 import PropTypes from "prop-types";
 import RegisterForm from "./components/forms/RegisterForm";
 import GoogleButton from "./GoogleButton";
-import PrevNavbar from "../PrevNavbar";
+import PrevNavbar from "../../common/PrevNavbar";
 
 const useStyles = makeStyles((theme) => ({
 	container: {
