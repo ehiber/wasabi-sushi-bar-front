@@ -16,7 +16,7 @@ const useStyles = makeStyles((theme) => ({
 		rowGap: 20,
 	},
 	prevNavbar: {
-		color: theme.palette.text.primary,
+		color: theme.palette.common.white,
 	},
 	menuTitle: {
 		backgroundColor: theme.palette.primary.main,

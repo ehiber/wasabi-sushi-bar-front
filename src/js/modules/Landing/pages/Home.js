@@ -1,4 +1,5 @@
 import React from "react";
+import { useHistory } from "react-router";
 import { Box, Button, Grid, makeStyles, Typography } from "@material-ui/core";
 import { theme } from "../../../theme";
 
@@ -11,7 +12,6 @@ const useStyles = makeStyles((theme) => ({
 		marginTop: theme.spacing(2),
 		backgroundColor: theme.palette.common.black,
 		color: theme.palette.common.white,
-		// pointerEvents: "none",
 	},
 	upperBox: {
 		minHeight: "75%",
@@ -55,13 +55,27 @@ const useStyles = makeStyles((theme) => ({
 
 const Home = () => {
 	const classes = useStyles();
+	const { push } = useHistory();
+	const handleLogin = () => {
+		push("./login");
+	};
+	const handleRegiter = () => {
+		push("./register");
+	};
+	const handleMenu = () => {
+		push("./menu-principal");
+	};
 
 	return (
 		<Box className={classes.content}>
 			<Grid container direction="column" className={classes.upperBox}>
 				<Grid xs={12}>Logo</Grid>
 				<Grid>
-					<Button className={classes.buttons} variant="contained">
+					<Button
+						className={classes.buttons}
+						variant="contained"
+						onClick={handleMenu}
+					>
 						Ver menú
 					</Button>
 				</Grid>
@@ -71,7 +85,11 @@ const Home = () => {
 					<Typography className={classes.text}>
 						Creá tu cuenta
 					</Typography>
-					<Button className={classes.buttons} variant="contained">
+					<Button
+						className={classes.buttons}
+						variant="contained"
+						onClick={handleRegiter}
+					>
 						Registrate
 					</Button>
 				</Grid>
@@ -84,6 +102,7 @@ const Home = () => {
 					<Button
 						className={`${classes.buttonLogin} ${classes.buttons}`}
 						variant="contained"
+						onClick={handleLogin}
 					>
 						Iniciar Sesión
 					</Button>

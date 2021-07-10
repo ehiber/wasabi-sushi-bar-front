@@ -44,10 +44,7 @@ const Layout = (props) => {
 								path="/register"
 								component={RegisterFormView}
 							/>
-							<Route
-								path="/login-form"
-								component={LoginFormView}
-							/>
+							<Route path="/login" component={LoginFormView} />
 							<Route
 								path="/menu-principal"
 								component={PrincipalMenu}

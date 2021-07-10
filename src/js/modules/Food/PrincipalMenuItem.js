@@ -22,7 +22,7 @@ const PrincipalMenuItem = ({ title }) => {
 	const classes = useStyles();
 
 	return (
-		<Link className={classes.container}>
+		<Link href="/menu-platos" className={classes.container}>
 			<Typography variant="h2" className={classes.title}>
 				{title}
 			</Typography>
