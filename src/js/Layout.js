@@ -1,6 +1,6 @@
+import React, { useState, useEffect, useReducer } from "react";
 import { hot } from "react-hot-loader/root";
 import PropTypes from "prop-types";
-import React, { useState, useEffect, useReducer } from "react";
 import { ThemeProvider, CssBaseline } from "@material-ui/core";
 import theme from "./theme/index";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
@@ -17,7 +17,6 @@ import HelpView from "./modules/Landing/pages/HelpView";
 import Questions from "./modules/Landing/pages/Questions";
 import Privacy from "./modules/Landing/pages/Privacy";
 import PrivacyPage from "./modules/Landing/pages/PrivacyPage";
-
 import MyAccount from "./modules/User/MyAccount";
 
 const Layout = (props) => {
@@ -45,10 +44,7 @@ const Layout = (props) => {
 								path="/register"
 								component={RegisterFormView}
 							/>
-							<Route
-								path="/login-form"
-								component={LoginFormView}
-							/>
+							<Route path="/login" component={LoginFormView} />
 							<Route
 								path="/menu-principal"
 								component={PrincipalMenu}
@@ -73,7 +69,7 @@ const Layout = (props) => {
 							/>
 						</Switch>
 					) : (
-						<div className="view-loader"></div>
+						<div className=""></div>
 					)}
 				</AppContextProvider>
 			</BrowserRouter>

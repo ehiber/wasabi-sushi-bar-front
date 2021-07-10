@@ -1,4 +1,5 @@
 import React from "react";
+import { useHistory } from "react-router";
 import PropTypes from "prop-types";
 import { Box, makeStyles } from "@material-ui/core";
 import SideBar from "../../common/SideBar";
@@ -21,13 +22,16 @@ const useStyles = makeStyles((theme) => ({
 		padding: 10,
 	},
 	prevNavbar: {
-		color: theme.palette.text.primary,
+		color: theme.palette.common.white,
 	},
 }));
 
 const PrincipalMenu = () => {
 	const classes = useStyles();
-
+	const { push } = useHistory();
+	const handleCategories = () => {
+		push("./menu-platos");
+	};
 	const categories = [
 		{
 			id: 1,
@@ -81,6 +85,7 @@ const PrincipalMenu = () => {
 							key={category.id}
 							title={category.label}
 							image={category.image}
+							onClick={handleCategories}
 						/>
 					);
 				})}
