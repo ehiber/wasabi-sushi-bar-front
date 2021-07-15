@@ -3,18 +3,18 @@ import { makeStyles, Box, Typography } from "@material-ui/core";
 import PropTypes from "prop-types";
 import RegisterForm from "./components/forms/RegisterForm";
 import GoogleButton from "./GoogleButton";
-import PrevNavbar from "../PrevNavbar";
+import PrevNavbar from "../../common/PrevNavbar";
 import Logo from "../../../../dist/screenshot-without-bg.png";
 
 const useStyles = makeStyles((theme) => ({
 	container: {
 		display: "flex",
 		backgroundColor: theme.palette.common.black,
-		color: theme.palette.text.primary,
+		color: theme.palette.common.white,
 		height: "100vh",
 	},
 	prevNavbar: {
-		color: theme.palette.text.primary,
+		color: theme.palette.common.white,
 		borderBottomWidth: 0,
 	},
 	mainContainer: {
@@ -23,7 +23,7 @@ const useStyles = makeStyles((theme) => ({
 		padding: "0px 30px",
 	},
 	title: {
-		color: theme.palette.text.primary,
+		color: theme.palette.common.white,
 	},
 	logoCtn: {
 		width: "70%",

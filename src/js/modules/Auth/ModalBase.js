@@ -5,8 +5,6 @@ import {
 	Dialog,
 	DialogActions,
 	DialogContent,
-	DialogContentText,
-	DialogTitle,
 	Button,
 } from "@material-ui/core";
 import { Box, Typography } from "@material-ui/core";
@@ -56,19 +54,13 @@ const useStyles = makeStyles((theme) => ({
 	},
 }));
 
-const ModalBase = ({
-	open,
-	handleClose,
-	handleClickOpen,
-	paragraphText,
-	inputText,
-}) => {
+const ModalBase = ({ open, onOpen, onClose, paragraphText }) => {
 	const classes = useStyles();
 
 	return (
 		<Dialog
 			open={open}
-			onClose={handleClose}
+			onClose={onClose}
 			aria-labelledby="alert-dialog-title"
 			aria-describedby="alert-dialog-description"
 			PaperProps={{
@@ -79,19 +71,22 @@ const ModalBase = ({
 			}}
 		>
 			<DialogContent className={classes.dialogContent}>
-				<DialogContentText id="alert-dialog-description">
-					<Box className={classes.logoCtn}>
-						<img src={Logo} className={classes.logoImg}></img>
-					</Box>
-					<Typography variant="h2" className={classes.modalTitle}>
-						¿Olvidaste <br /> tu contraseña?
-					</Typography>
-					{paragraphText}
-				</DialogContentText>
+				<Box className={classes.logoCtn}>
+					<img src={Logo} className={classes.logoImg}></img>
+				</Box>
+				<Typography variant="h2" className={classes.modalTitle}>
+					¿Olvidaste <br /> tu contraseña?
+				</Typography>
+
+				{paragraphText}
 			</DialogContent>
 			<DialogActions className={classes.buttons}>
-				<Button className={classes.principalBtn}>ENVIAR CÓDIGO</Button>
-				<Button className={classes.secondaryBtn}>NO, VOLVER</Button>
+				<Button className={classes.principalBtn} onClick={onOpen}>
+					ENVIAR CÓDIGO
+				</Button>
+				<Button className={classes.secondaryBtn} onClick={onClose}>
+					NO, VOLVER
+				</Button>
 			</DialogActions>
 		</Dialog>
 	);
@@ -99,6 +94,9 @@ const ModalBase = ({
 
 ModalBase.propTypes = {
 	open: PropTypes.bool,
+	onOpen: PropTypes.func,
+	onClose: PropTypes.func,
+	handleClickOpen: PropTypes.func,
 	paragraphText: PropTypes.node,
 	inputText: PropTypes.node,
 };

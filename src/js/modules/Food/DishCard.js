@@ -33,7 +33,7 @@ const useStyles = makeStyles((theme) => ({
 		maxWidth: 150,
 		[`&:hover`]: {
 			backgroundColor: theme.palette.background.default,
-			color: theme.palette.text.primary,
+			color: theme.palette.common.white,
 		},
 	},
 	avatar: {

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import PropTypes from "prop-types";
 import {
 	TextField,
@@ -7,16 +7,18 @@ import {
 	Typography,
 	Link,
 	Box,
+	DialogContentText,
 } from "@material-ui/core";
 
 import ForgotPassword from "../modal/ForgotPassword";
+import ModalBase from "../../ModalBase";
 
 const ModalText = () => {
 	return (
-		<Typography variant="body1">
+		<DialogContentText id="alert-dialog-description">
 			Te enviaremos un código de vertificación a tu teléfono por mensaje
 			de texto
-		</Typography>
+		</DialogContentText>
 	);
 };
 
@@ -63,11 +65,11 @@ const useStyles = makeStyles((theme) => ({
 		backgroundColor: "rgba(0,100,0,0.5)",
 		borderRadius: "30px",
 		padding: "7px 30px 5px",
-		color: theme.palette.text.primary,
+		color: theme.palette.common.white,
 		maxWidth: "150px",
 	},
 	text: {
-		color: theme.palette.text.primary,
+		color: theme.palette.common.white,
 	},
 	linkContainer: {
 		display: "flex",
@@ -81,14 +83,22 @@ const useStyles = makeStyles((theme) => ({
 const RegisterForm = ({ login, enterButton }) => {
 	const classes = useStyles();
 
+	const [counter, setCounter] = React.useState(0);
 	const [open, setOpen] = React.useState(false);
 
-	const handleClickOpen = () => {
+	const handleOpen = () => {
+		setCounter((prevCounter) => prevCounter + 1);
 		setOpen(true);
+		console.log(counter);
 	};
 
 	const handleClose = () => {
-		setOpen(false);
+		if (counter == 0) {
+			setOpen(false);
+		} else {
+			setCounter((prevCounter) => prevCounter - 1);
+		}
+		console.log(counter);
 	};
 
 	return (
@@ -113,22 +123,39 @@ const RegisterForm = ({ login, enterButton }) => {
 					{login && (
 						<Box>
 							<Typography>
-								<Link color="inherit" onClick={handleClickOpen}>
+								<Link color="inherit" onClick={handleOpen}>
 									¿Olvidaste tu usuario?
 								</Link>
 							</Typography>
 							<Typography>
-								<Link color="inherit" onClick={handleClickOpen}>
+								<Link color="inherit" onClick={handleOpen}>
 									¿Olvidaste tu contraseña?
 								</Link>
 							</Typography>
-							<ForgotPassword
+							<ModalBase
+								open={open}
+								onOpen={handleOpen}
+								onClose={handleClose}
+								paragraphText={
+									counter == 1 ? (
+										<ModalText />
+									) : counter == 2 ? (
+										<ModalInput />
+									) : counter == 3 ? (
+										<ModalInput />
+									) : (
+										""
+									)
+								}
+								aria-labelledby="simple-modal-title"
+								aria-describedby="simple-modal-description"
+							/>
+							{/* <ForgotPassword
 								open={open}
 								handleClose={handleClose}
-								handleClickOpen={handleClickOpen}
 								paragraphText={<ModalText />}
 								inputText={<ModalInput />}
-							/>
+							/> */}
 						</Box>
 					)}
 				</Box>
@@ -144,9 +171,9 @@ const RegisterForm = ({ login, enterButton }) => {
 RegisterForm.propTypes = {
 	login: PropTypes.bool,
 	enterButton: PropTypes.string,
-	handleClose: PropTypes.func,
+	onOpen: PropTypes.func,
+	onClose: PropTypes.func,
 	handleClickOpen: PropTypes.func,
 	paragraphText: PropTypes.node,
-	inputText: PropTypes.node,
 };
 export default RegisterForm;

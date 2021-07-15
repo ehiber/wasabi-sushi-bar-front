@@ -3,10 +3,10 @@ import PropTypes from "prop-types";
 import { makeStyles } from "@material-ui/core/styles";
 import { Box, Avatar, Container, Typography } from "@material-ui/core";
 import { NavLink } from "react-router-dom";
-import Sidebar from "./SideBar";
-import PrevNavbar from "./PrevNavbar";
+import Sidebar from "../../common/SideBar";
+import PrevNavbar from "../../common/PrevNavbar";
 import CameraAltIcon from "@material-ui/icons/CameraAlt";
-import InfoItemView from "./InfoItemView";
+import InfoItemView from "../../common/InfoItemView";
 
 const useStyles = makeStyles((theme) => ({
 	container: {

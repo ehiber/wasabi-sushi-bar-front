@@ -3,7 +3,7 @@ import { Box, makeStyles, Typography } from "@material-ui/core";
 import PropTypes from "prop-types";
 import RegisterForm from "./components/forms/RegisterForm";
 import GoogleButton from "./GoogleButton";
-import PrevNavbar from "../PrevNavbar";
+import PrevNavbar from "../../common/PrevNavbar";
 
 const useStyles = makeStyles((theme) => ({
 	container: {
@@ -14,14 +14,14 @@ const useStyles = makeStyles((theme) => ({
 		backgroundColor: theme.palette.common.black,
 	},
 	prevNavbar: {
-		color: theme.palette.text.primary,
+		color: theme.palette.common.white,
 	},
 	mainContainer: {
 		rowGap: 10,
 		padding: "0px 30px",
 	},
 	title: {
-		color: theme.palette.text.primary,
+		color: theme.palette.common.white,
 	},
 	mainText: {
 		color: "gray",

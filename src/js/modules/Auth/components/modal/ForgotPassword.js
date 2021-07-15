@@ -1,5 +1,8 @@
 import React from "react";
+import PropTypes from "prop-types";
 import ModalBase from "../../ModalBase";
+import ModalText from "../forms/RegisterForm";
+import ModalInput from "../forms/RegisterForm";
 import { Button } from "@material-ui/core";
 
 const ForgotPassword = ({
@@ -19,7 +22,6 @@ const ForgotPassword = ({
 					<ModalBase
 						open={open}
 						handleClose={handleClose}
-						handleClickOpen={handleClickOpen}
 						paragraphText={<ModalText />}
 						inputText={<ModalInput />}
 					/>
