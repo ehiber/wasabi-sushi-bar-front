@@ -5,6 +5,7 @@ import {
 	FormControl,
 	InputLabel,
 	Avatar,
+	Button,
 } from "@material-ui/core";
 import { useForm } from "react-hook-form";
 import { makeStyles } from "@material-ui/core/styles";
@@ -25,9 +26,18 @@ const useStyles = makeStyles((theme) => ({
 	},
 	container: {
 		background: theme.palette.text.primary,
+		marginTop: theme.spacing(2),
 	},
 	prevNavbar: {
 		color: theme.palette.text.secondary,
+	},
+	avatarFather: {
+		background: theme.palette.primary.main,
+	},
+	avatar: {
+		margin: "auto",
+		width: theme.spacing(20),
+		height: theme.spacing(20),
 	},
 }));
 
@@ -58,91 +68,233 @@ const PersonalData = () => {
 	};
 
 	return (
-		<Container className={classes.container} maxWidth="sm">
+		<>
 			<PrevNavbar
 				color="text.primary"
 				linkStyle={classes.prevNavbar}
 				navbarText={"DATOS PERSONALES"}
 				previewButton={true}
 			/>
-			<form onSubmit={handleSubmit(onSubmit)}>
-				<Grid container spacing={3}>
-					<Avatar alt="User" src="https://picsum.photos/200/300" />
-					<Grid item xs={12}>
-						<FormControl
-							fullWidth={true}
-							// error={errors.email ? true : false}
-						>
-							<InputLabel
-								className={classes.paper}
-								shrink
-								htmlFor={"email"}
+			<Container className={classes.container} maxWidth="sm">
+				<form onSubmit={handleSubmit(onSubmit)}>
+					<Grid container spacing={3}>
+						<Grid item xs={12} className={classes.avatarFather}>
+							<Avatar
+								className={classes.avatar}
+								alt="User"
+								src="https://picsum.photos/200/300"
+							/>
+						</Grid>
+						<Grid item xs={12}>
+							<FormControl
+								fullWidth={true}
+								// error={errors.email ? true : false}
 							>
-								NOMBRE COMPLETO
-							</InputLabel>
-							<Input
-								control={control}
-								name="email"
-								// rules={{
-								// 	required: formRules.email.required,
-								// 	pattern: formRules.email.pattern,
-								// }}
-							/>
-							{/* <ErrorMessage
-									// errors={errors}
+								<InputLabel
+									className={classes.paper}
+									shrink
+									htmlFor={"email"}
+								>
+									NOMBRE COMPLETO
+								</InputLabel>
+								<Input
+									control={control}
 									name="email"
-									as={FormHelperText}
-								/> */}
-						</FormControl>
-					</Grid>
-					<Grid item xs={12}>
-						<FormControl
-							fullWidth={true}
-							// error={errors.password ? true : false}
-						>
-							<InputLabel shrink htmlFor={"password"}>
-								TELÉFONO
-							</InputLabel>
-							<Input
-								control={control}
-								name="password"
-								// rules={{
-								// 	required: formRules.password.required,
-								// 	pattern: formRules.password.pattern,
-								// }}
-								type="password"
-							/>
-							{/* <ErrorMessage
-									// errors={errors}
+									// rules={{
+									// 	required: formRules.email.required,
+									// 	pattern: formRules.email.pattern,
+									// }}
+								/>
+								{/* <ErrorMessage
+										// errors={errors}
+										name="email"
+										as={FormHelperText}
+									/> */}
+							</FormControl>
+						</Grid>
+						<Grid item xs={12}>
+							<FormControl
+								fullWidth={true}
+								// error={errors.password ? true : false}
+							>
+								<InputLabel
+									shrink
+									htmlFor={"password"}
+									className={classes.paper}
+								>
+									TELÉFONO
+								</InputLabel>
+								<Input
+									control={control}
 									name="password"
-									as={FormHelperText}
-								/> */}
-						</FormControl>
-					</Grid>
-					<Grid item xs={12}>
-						{/* <Button
+									// rules={{
+									// 	required: formRules.password.required,
+									// 	pattern: formRules.password.pattern,
+									// }}
+									type="password"
+								/>
+								{/* <ErrorMessage
+										// errors={errors}
+										name="password"
+										as={FormHelperText}
+									/> */}
+							</FormControl>
+						</Grid>
+						<Grid item xs={12}>
+							<FormControl
+								fullWidth={true}
+								// error={errors.password ? true : false}
+							>
+								<InputLabel
+									shrink
+									htmlFor={"password"}
+									className={classes.paper}
+								>
+									TELÉFONO DE CASA
+								</InputLabel>
+								<Input
+									control={control}
+									name="password"
+									// rules={{
+									// 	required: formRules.password.required,
+									// 	pattern: formRules.password.pattern,
+									// }}
+									type="password"
+								/>
+								{/* <ErrorMessage
+										// errors={errors}
+										name="password"
+										as={FormHelperText}
+									/> */}
+							</FormControl>
+						</Grid>
+						<Grid item xs={12}>
+							<FormControl
+								fullWidth={true}
+								// error={errors.password ? true : false}
+							>
+								<InputLabel
+									shrink
+									htmlFor={"password"}
+									className={classes.paper}
+								>
+									DIRECCIÓN
+								</InputLabel>
+								<Input
+									control={control}
+									name="password"
+									// rules={{
+									// 	required: formRules.password.required,
+									// 	pattern: formRules.password.pattern,
+									// }}
+									type="password"
+								/>
+								{/* <ErrorMessage
+										// errors={errors}
+										name="password"
+										as={FormHelperText}
+									/> */}
+							</FormControl>
+						</Grid>
+						<Grid item xs={12}>
+							<FormControl
+								fullWidth={true}
+								// error={errors.password ? true : false}
+							>
+								<InputLabel
+									shrink
+									htmlFor={"password"}
+									className={classes.paper}
+								>
+									NÚMERO DE CASA O DEPARTAMENTO
+								</InputLabel>
+								<Input
+									control={control}
+									name="password"
+									// rules={{
+									// 	required: formRules.password.required,
+									// 	pattern: formRules.password.pattern,
+									// }}
+									type="password"
+								/>
+								{/* <ErrorMessage
+										// errors={errors}
+										name="password"
+										as={FormHelperText}
+									/> */}
+							</FormControl>
+						</Grid>
+						<Grid item xs={12}>
+							<FormControl
+								fullWidth={true}
+								// error={errors.password ? true : false}
+							>
+								<InputLabel
+									shrink
+									htmlFor={"password"}
+									className={classes.paper}
+								>
+									REFERENCIA
+								</InputLabel>
+								<Input
+									control={control}
+									name="password"
+									// rules={{
+									// 	required: formRules.password.required,
+									// 	pattern: formRules.password.pattern,
+									// }}
+									type="password"
+								/>
+								{/* <ErrorMessage
+										// errors={errors}
+										name="password"
+										as={FormHelperText}
+									/> */}
+							</FormControl>
+						</Grid>
+						<Grid item xs={12}>
+							<FormControl
+								fullWidth={true}
+								// error={errors.password ? true : false}
+							>
+								<InputLabel
+									shrink
+									htmlFor={"password"}
+									className={classes.paper}
+								>
+									FECHA DE NACIMIENTO
+								</InputLabel>
+								<Input
+									control={control}
+									name="password"
+									// rules={{
+									// 	required: formRules.password.required,
+									// 	pattern: formRules.password.pattern,
+									// }}
+									type="password"
+								/>
+								{/* <ErrorMessage
+										// errors={errors}
+										name="password"
+										as={FormHelperText}
+									/> */}
+							</FormControl>
+						</Grid>
+
+						<Grid item xs={12}>
+							<Button
 								variant="contained"
 								color="primary"
 								fullWidth={true}
 								type="submit"
-								disabled={loading}
 							>
-								{loading ? (
-									<CircularProgress
-										color="secondary"
-										style={{
-											width: "30px",
-											height: "30px",
-										}}
-									/>
-								) : (
-									"Sign in"
-								)}
-							</Button> */}
+								ACEPTAR
+							</Button>
+						</Grid>
 					</Grid>
-				</Grid>
-			</form>
-		</Container>
+				</form>
+			</Container>
+		</>
 	);
 };
 
