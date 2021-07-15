@@ -86,19 +86,29 @@ const RegisterForm = ({ login, enterButton }) => {
 	const [counter, setCounter] = React.useState(0);
 	const [open, setOpen] = React.useState(false);
 
+	useEffect(() => {
+		if (counter == 4) {
+			handleClose();
+		}
+	}, [counter]);
+
 	const handleOpen = () => {
-		setCounter((prevCounter) => prevCounter + 1);
-		setOpen(true);
-		console.log(counter);
+		if (counter == 3) {
+			setCounter(4);
+		} else {
+			setCounter((prevCounter) => prevCounter + 1);
+			setOpen(true);
+		}
 	};
 
 	const handleClose = () => {
 		if (counter == 0) {
 			setOpen(false);
+		} else if (counter == 4) {
+			setCounter(0);
 		} else {
 			setCounter((prevCounter) => prevCounter - 1);
 		}
-		console.log(counter);
 	};
 
 	return (
@@ -132,24 +142,34 @@ const RegisterForm = ({ login, enterButton }) => {
 									¿Olvidaste tu contraseña?
 								</Link>
 							</Typography>
-							<ModalBase
-								open={open}
-								onOpen={handleOpen}
-								onClose={handleClose}
-								paragraphText={
-									counter == 1 ? (
-										<ModalText />
-									) : counter == 2 ? (
-										<ModalInput />
-									) : counter == 3 ? (
-										<ModalInput />
-									) : (
-										""
-									)
-								}
-								aria-labelledby="simple-modal-title"
-								aria-describedby="simple-modal-description"
-							/>
+							{counter == 1 ? (
+								<ModalBase
+									open={open}
+									onOpen={handleOpen}
+									onClose={handleClose}
+									paragraphText={<ModalText />}
+									aria-labelledby="simple-modal-title"
+									aria-describedby="simple-modal-description"
+								/>
+							) : counter == 2 ? (
+								<ModalBase
+									open={open}
+									onOpen={handleOpen}
+									onClose={handleClose}
+									paragraphText={<ModalInput />}
+									aria-labelledby="simple-modal-title"
+									aria-describedby="simple-modal-description"
+								/>
+							) : counter == 3 ? (
+								<ModalBase
+									open={open}
+									onOpen={handleOpen}
+									onClose={handleClose}
+									paragraphText={<ModalInput />}
+									aria-labelledby="simple-modal-title"
+									aria-describedby="simple-modal-description"
+								/>
+							) : null}
 							{/* <ForgotPassword
 								open={open}
 								handleClose={handleClose}
