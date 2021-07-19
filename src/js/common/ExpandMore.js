@@ -4,6 +4,7 @@ import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 
 const useStyles = makeStyles((theme) => ({
 	arrowIconCtn: {
+		color: theme.palette.common.white,
 		width: "100%",
 		position: "fixed",
 		backgroundImage:

@@ -8,7 +8,6 @@ import {
 	Button,
 } from "@material-ui/core";
 import { Box, Typography } from "@material-ui/core";
-import Logo from "../../../../dist/screenshot-without-bg.png";
 
 const useStyles = makeStyles((theme) => ({
 	dialogRoot: {
@@ -28,33 +27,33 @@ const useStyles = makeStyles((theme) => ({
 		width: "100%",
 		margin: "auto",
 	},
-	modalTitle: {
-		color: "aqua",
-		fontSize: "1.6rem",
-		marginBottom: 15,
-	},
 	buttons: {
 		flexDirection: "column",
 		rowGap: 15,
 		paddingRight: 0,
 		paddingLeft: 0,
 	},
-	principalBtn: {
-		backgroundColor: "aqua",
-		color: "white",
-		width: "100%",
-		borderRadius: 20,
-	},
 	secondaryBtn: {
 		borderRadius: 20,
-		color: theme.palette.text.secondary,
+		color: theme.palette.text.primary,
 		marginLeft: "0 !important",
 		width: "100%",
 		backgroundColor: theme.palette.background.paper,
 	},
 }));
 
-const ModalBase = ({ open, onOpen, onClose, paragraphText }) => {
+const ModalBase = ({
+	Logo,
+	modalTitle,
+	open,
+	onOpen,
+	onClose,
+	titleStyle,
+	paragraphText,
+	nextButtonText,
+	prevButtonText,
+	buttonStyle,
+}) => {
 	const classes = useStyles();
 
 	return (
@@ -74,18 +73,18 @@ const ModalBase = ({ open, onOpen, onClose, paragraphText }) => {
 				<Box className={classes.logoCtn}>
 					<img src={Logo} className={classes.logoImg}></img>
 				</Box>
-				<Typography variant="h2" className={classes.modalTitle}>
-					¿Olvidaste <br /> tu contraseña?
+				<Typography variant="h2" className={titleStyle}>
+					{modalTitle}
 				</Typography>
 
 				{paragraphText}
 			</DialogContent>
 			<DialogActions className={classes.buttons}>
-				<Button className={classes.principalBtn} onClick={onOpen}>
-					ENVIAR CÓDIGO
+				<Button className={buttonStyle} onClick={onOpen}>
+					{nextButtonText}
 				</Button>
 				<Button className={classes.secondaryBtn} onClick={onClose}>
-					NO, VOLVER
+					{prevButtonText}
 				</Button>
 			</DialogActions>
 		</Dialog>
@@ -93,12 +92,17 @@ const ModalBase = ({ open, onOpen, onClose, paragraphText }) => {
 };
 
 ModalBase.propTypes = {
+	Logo: PropTypes.node,
+	modalTitle: PropTypes.string,
 	open: PropTypes.bool,
 	onOpen: PropTypes.func,
 	onClose: PropTypes.func,
-	handleClickOpen: PropTypes.func,
+	titleStyle: PropTypes.object,
 	paragraphText: PropTypes.node,
 	inputText: PropTypes.node,
+	nextButtonText: PropTypes.string,
+	prevButtonText: PropTypes.string,
+	buttonStyle: PropTypes.object,
 };
 
 export default ModalBase;

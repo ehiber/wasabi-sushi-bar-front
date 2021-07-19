@@ -10,6 +10,7 @@ import {
 	DialogContentText,
 } from "@material-ui/core";
 
+import Logo from "../../../../../../dist/screenshot-without-bg.png";
 import ForgotPassword from "../modal/ForgotPassword";
 import ModalBase from "../../ModalBase";
 
@@ -22,14 +23,12 @@ const ModalText = () => {
 	);
 };
 
-const ModalInput = () => {
-	return (
-		<TextField
-			error
-			id="standard-error-helper-text"
-			helperText="ERROR: Código incorrecto"
-		/>
-	);
+const ModalVerificationInput = () => {
+	return <TextField id="outlined-basic" variant="outlined" />;
+};
+
+const ModalPasswordInput = () => {
+	return <TextField id="outlined-basic" variant="outlined" />;
 };
 
 const useStyles = makeStyles((theme) => ({
@@ -39,6 +38,16 @@ const useStyles = makeStyles((theme) => ({
 		rowGap: "10px",
 		alignItems: "center",
 		width: "100%",
+	},
+	aquaModalTitle: {
+		color: "#19d3c5",
+		fontSize: "1.6rem",
+		marginBottom: 15,
+	},
+	blueModalTitle: {
+		color: "#009ade",
+		fontSize: "1.6rem",
+		marginBottom: 15,
 	},
 	input: {
 		width: "100%",
@@ -77,6 +86,18 @@ const useStyles = makeStyles((theme) => ({
 		rowGap: 15,
 		marginTop: "50px",
 		fontStyle: "italic",
+	},
+	aquaNextButton: {
+		backgroundColor: "#19d3c5",
+		color: "white",
+		width: "100%",
+		borderRadius: 20,
+	},
+	blueNextButton: {
+		backgroundColor: "#009ade",
+		color: "white",
+		width: "100%",
+		borderRadius: 20,
 	},
 }));
 
@@ -117,13 +138,11 @@ const RegisterForm = ({ login, enterButton }) => {
 				<Box className={classes.form}>
 					<TextField
 						className={classes.input}
-						id="outlined-basic"
 						label="Correo"
 						variant="outlined"
 					/>
 					<TextField
 						className={classes.input}
-						id="outlined-basic"
 						label="Contraseña"
 						variant="outlined"
 					/>
@@ -147,27 +166,45 @@ const RegisterForm = ({ login, enterButton }) => {
 									open={open}
 									onOpen={handleOpen}
 									onClose={handleClose}
+									Logo={Logo}
+									modalTitle="¿Olvidaste tu contraseña?"
+									titleStyle={classes.aquaModalTitle}
 									paragraphText={<ModalText />}
+									nextButtonText="ENVIAR CÓDIGO"
+									prevButtonText="NO, VOLVER"
 									aria-labelledby="simple-modal-title"
 									aria-describedby="simple-modal-description"
+									buttonStyle={classes.aquaNextButton}
 								/>
 							) : counter == 2 ? (
 								<ModalBase
 									open={open}
 									onOpen={handleOpen}
 									onClose={handleClose}
-									paragraphText={<ModalInput />}
+									Logo={Logo}
+									modalTitle="Ingresá el código de verificación"
+									titleStyle={classes.aquaModalTitle}
+									paragraphText={<ModalVerificationInput />}
+									nextButtonText="VERIFICAR"
+									prevButtonText="REENVIAR CÓDIGO"
 									aria-labelledby="simple-modal-title"
 									aria-describedby="simple-modal-description"
+									buttonStyle={classes.aquaNextButton}
 								/>
 							) : counter == 3 ? (
 								<ModalBase
 									open={open}
 									onOpen={handleOpen}
 									onClose={handleClose}
-									paragraphText={<ModalInput />}
+									Logo={Logo}
+									modalTitle="Ingresá tu contraseña"
+									titleStyle={classes.blueModalTitle}
+									paragraphText={<ModalPasswordInput />}
+									nextButtonText="ACEPTAR"
+									prevButtonText="SALIR"
 									aria-labelledby="simple-modal-title"
 									aria-describedby="simple-modal-description"
+									buttonStyle={classes.blueNextButton}
 								/>
 							) : null}
 							{/* <ForgotPassword
@@ -191,9 +228,15 @@ const RegisterForm = ({ login, enterButton }) => {
 RegisterForm.propTypes = {
 	login: PropTypes.bool,
 	enterButton: PropTypes.string,
+	Logo: PropTypes.node,
+	modalTitle: PropTypes.string,
+	titleStyle: PropTypes.object,
 	onOpen: PropTypes.func,
 	onClose: PropTypes.func,
 	handleClickOpen: PropTypes.func,
 	paragraphText: PropTypes.node,
+	nextButtonText: PropTypes.string,
+	prevButtonText: PropTypes.string,
+	buttonStyle: PropTypes.object,
 };
 export default RegisterForm;
