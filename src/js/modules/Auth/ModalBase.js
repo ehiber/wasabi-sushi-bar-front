@@ -29,9 +29,10 @@ const useStyles = makeStyles((theme) => ({
 	},
 	buttons: {
 		flexDirection: "column",
-		rowGap: 15,
+		rowGap: 10,
 		paddingRight: 0,
 		paddingLeft: 0,
+		paddingTop: 0,
 	},
 	secondaryBtn: {
 		borderRadius: 20,
@@ -66,6 +67,7 @@ const ModalBase = ({
 				style: {
 					backgroundColor: "transparent",
 					textAlign: "center",
+					boxShadow: "unset",
 				},
 			}}
 		>

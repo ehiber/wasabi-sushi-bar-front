@@ -15,11 +15,14 @@ import {
 	FormControlLabel,
 	TextField,
 	Button,
+	DialogContentText,
 } from "@material-ui/core";
 import CheckCircleOutlineIcon from "@material-ui/icons/CheckCircleOutline";
 import Sidebar from "../../common/SideBar";
 import PrevNavbar from "../../common/PrevNavbar";
 import CloseIcon from "@material-ui/icons/Close";
+import Logo from "../../../../dist/screenshot-without-bg.png";
+import ModalBase from "../../modules/Auth/ModalBase";
 
 const data = {
 	products: [
@@ -40,6 +43,15 @@ const data = {
 		},
 	],
 	delivery: 20,
+};
+
+const ModalConfirmationText = () => {
+	return (
+		<DialogContentText id="alert-dialog-description">
+			Tu pedido ha sido recibido. Podés revisar la orden en tu Historial
+			de Compras.
+		</DialogContentText>
+	);
 };
 
 const useStyles = makeStyles((theme) => ({
@@ -150,14 +162,34 @@ const useStyles = makeStyles((theme) => ({
 		borderRadius: 20,
 		margin: "5px 0px 10px",
 	},
+	modalTitle: {
+		color: theme.palette.primary.main,
+		fontSize: "1.6rem",
+		marginBottom: 15,
+	},
+	nextButton: {
+		backgroundColor: theme.palette.primary.main,
+		color: theme.palette.common.black,
+		width: "100%",
+		borderRadius: 20,
+	},
 }));
 
 const Cart = () => {
 	const classes = useStyles();
 	const [value, setValue] = React.useState("transfer");
+	const [open, setOpen] = React.useState(false);
 
 	const handleChange = (event) => {
 		setValue(event.target.value);
+	};
+
+	const handleOpen = () => {
+		setOpen(true);
+	};
+
+	const handleClose = () => {
+		setOpen(false);
 	};
 
 	return (
@@ -281,12 +313,31 @@ const Cart = () => {
 				</Box>
 
 				<Box>
-					<Button className={classes.principalBtn}>CONFIRMAR</Button>
+					<Button
+						className={classes.principalBtn}
+						onClick={handleOpen}
+					>
+						CONFIRMAR
+					</Button>
 					<Button className={classes.secondaryBtn}>
 						SEGUIR COMPRANDO
 					</Button>
 				</Box>
 			</Container>
+
+			<ModalBase
+				open={open}
+				onClose={handleClose}
+				Logo={Logo}
+				modalTitle="¡Gracias por tu compra!"
+				titleStyle={classes.modalTitle}
+				paragraphText={<ModalConfirmationText />}
+				nextButtonText="VER HISTORIAL"
+				prevButtonText="VOLVER AL MENÚ"
+				aria-labelledby="Confirmación"
+				aria-describedby="Mensaje de confirmación de compra"
+				buttonStyle={classes.nextButton}
+			/>
 		</Box>
 	);
 };
