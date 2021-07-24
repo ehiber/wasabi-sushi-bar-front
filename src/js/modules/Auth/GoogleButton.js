@@ -6,11 +6,13 @@ import GoogleLogo from "../../../../dist/google.svg";
 const useStyles = makeStyles(() => ({
 	googleButton: {
 		display: "flex",
-		position: "absolute",
+		position: "relative",
 		bottom: 40,
 		backgroundColor: "rgba(255,255,255,0.50)",
 		borderRadius: "30px",
 		padding: "2px 40px 2px 10px",
+		maxWidth: "fit-content",
+		margin: "0 auto",
 	},
 	googleImg: {
 		position: "absolute",

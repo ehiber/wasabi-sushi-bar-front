@@ -18,6 +18,7 @@ import Questions from "./modules/Landing/pages/Questions";
 import Privacy from "./modules/Landing/pages/Privacy";
 import PrivacyPage from "./modules/Landing/pages/PrivacyPage";
 import MyAccount from "./modules/User/MyAccount";
+import Cart from "./modules/User/Cart";
 
 const Layout = (props) => {
 	const [state, dispatch] = useReducer(loaderReducer, initLoaderState);
@@ -67,6 +68,7 @@ const Layout = (props) => {
 								path="/politicas-de-privacidad"
 								component={PrivacyPage}
 							/>
+							<Route path="/mi-carrito" component={Cart} />
 						</Switch>
 					) : (
 						<div className=""></div>

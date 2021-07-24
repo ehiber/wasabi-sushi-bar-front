@@ -7,10 +7,11 @@ import InfoItemView from "../../../common/InfoItemView";
 
 const useStyles = makeStyles((theme) => ({
 	container: {
+		height: "100vh",
 		backgroundColor: theme.palette.background.paper,
 	},
 	prevNavbar: {
-		color: theme.palette.text.secondary,
+		color: theme.palette.text.primary,
 	},
 	pageContent: {
 		borderTop: "1px solid black",
