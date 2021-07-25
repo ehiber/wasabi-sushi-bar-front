@@ -19,6 +19,7 @@ import Privacy from "./modules/Landing/pages/Privacy";
 import PrivacyPage from "./modules/Landing/pages/PrivacyPage";
 import MyAccount from "./modules/User/MyAccount";
 import Cart from "./modules/User/Cart";
+import ShoppingHistory from "./modules/User/ShoppingHistory";
 
 const Layout = (props) => {
 	const [state, dispatch] = useReducer(loaderReducer, initLoaderState);
@@ -69,6 +70,10 @@ const Layout = (props) => {
 								component={PrivacyPage}
 							/>
 							<Route path="/mi-carrito" component={Cart} />
+							<Route
+								path="/historial"
+								component={ShoppingHistory}
+							/>
 						</Switch>
 					) : (
 						<div className=""></div>
