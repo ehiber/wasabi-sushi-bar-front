@@ -30,6 +30,10 @@ const useStyles = makeStyles((theme) => ({
 	textItalic: {
 		fontStyle: "italic",
 	},
+	expandSection: {
+		position: "fixed",
+		bottom: 0,
+	},
 }));
 
 const About = ({ linkStyle }) => {
@@ -91,7 +95,7 @@ const About = ({ linkStyle }) => {
 				</Typography>
 			</Container>
 
-			<ExpandMore />
+			<ExpandMore position={classes.expandSection} />
 		</Box>
 	);
 };
@@ -100,6 +104,7 @@ About.propTypes = {
 	navbarText: PropTypes.string,
 	closeButton: PropTypes.bool,
 	linkStyle: PropTypes.object,
+	position: PropTypes.object,
 };
 
 export default About;

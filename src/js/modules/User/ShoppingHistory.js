@@ -182,6 +182,10 @@ const useStyles = makeStyles((theme) => ({
 		width: "100%",
 		borderRadius: 20,
 	},
+	expandSection: {
+		position: "fixed",
+		bottom: 0,
+	},
 }));
 
 export default function ShoppingHistory() {
@@ -360,7 +364,7 @@ export default function ShoppingHistory() {
 					);
 				})}
 			</Box>
-			<ExpandMore />
+			<ExpandMore position={classes.expandSection} />
 
 			{counter == 1 ? (
 				<ModalBase
@@ -396,3 +400,7 @@ export default function ShoppingHistory() {
 		</Box>
 	);
 }
+
+ShoppingHistory.propTypes = {
+	position: PropTypes.object,
+};

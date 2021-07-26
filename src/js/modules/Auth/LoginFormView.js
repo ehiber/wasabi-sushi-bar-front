@@ -76,9 +76,8 @@ const LoginFormView = () => {
 					</Typography>
 					<RegisterForm login={true} enterButton={"INICIAR"} />
 				</Box>
-
-				<GoogleButton btnText={"Iniciar Sesión con"} />
 			</Box>
+			<GoogleButton btnText={"Iniciar Sesión con"} />
 		</Box>
 	);
 };

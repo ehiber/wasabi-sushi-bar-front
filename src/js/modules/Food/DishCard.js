@@ -59,7 +59,9 @@ const DishCard = () => {
 				<Typography variant="h3" color="textSecondary">
 					500
 				</Typography>
-				<Button className={classes.button}>VER</Button>
+				<Button className={classes.button} to="/Plate">
+					VER
+				</Button>
 			</Box>
 		</Container>
 	);
