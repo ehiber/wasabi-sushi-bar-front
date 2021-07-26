@@ -8,6 +8,7 @@ import InfoItemView from "../../../common/InfoItemView";
 
 const useStyles = makeStyles((theme) => ({
 	container: {
+		height: "100vh",
 		backgroundColor: theme.palette.background.paper,
 	},
 	pageContent: {
@@ -15,7 +16,7 @@ const useStyles = makeStyles((theme) => ({
 		borderCollapse: "collapse",
 	},
 	prevNavbar: {
-		color: theme.palette.text.secondary,
+		color: theme.palette.text.primary,
 	},
 }));
 

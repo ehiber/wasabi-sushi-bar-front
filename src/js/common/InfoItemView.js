@@ -8,7 +8,7 @@ const useStyles = makeStyles((theme) => ({
 		display: "flex",
 		flexDirection: "column",
 		backgroundColor: theme.palette.background.paper,
-		padding: "10px 0px",
+		padding: "0px",
 	},
 	link: {
 		display: "flex",
@@ -16,7 +16,7 @@ const useStyles = makeStyles((theme) => ({
 		padding: "15px 10px 15px 20px",
 	},
 	text: {
-		color: theme.palette.text.secondary,
+		color: theme.palette.text.primary,
 	},
 	conditionalText: {
 		color: "red",

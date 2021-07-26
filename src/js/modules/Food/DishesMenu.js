@@ -27,6 +27,10 @@ const useStyles = makeStyles((theme) => ({
 	dishCardCtn: {
 		width: "100%",
 	},
+	expandSection: {
+		position: "fixed",
+		bottom: 0,
+	},
 }));
 
 const DishesMenu = () => {
@@ -55,7 +59,7 @@ const DishesMenu = () => {
 				</Box>
 			</Container>
 
-			<ExpandMore />
+			<ExpandMore position={classes.expandSection} />
 		</Box>
 	);
 };
@@ -64,6 +68,7 @@ DishesMenu.propTypes = {
 	navbarText: PropTypes.string,
 	previewButton: PropTypes.bool,
 	linkStyle: PropTypes.object,
+	position: PropTypes.object,
 };
 
 export default DishesMenu;

@@ -12,7 +12,7 @@ const useStyles = makeStyles((theme) => ({
 		position: "relative",
 	},
 	prevNavbar: {
-		color: theme.palette.text.secondary,
+		color: theme.palette.text.primary,
 	},
 	logoImg: {
 		width: 200,
@@ -20,7 +20,7 @@ const useStyles = makeStyles((theme) => ({
 		margin: "auto",
 	},
 	text: {
-		color: theme.palette.text.secondary,
+		color: theme.palette.text.primary,
 		textAlign: "center",
 		padding: "0px 25px 50px",
 	},
@@ -29,6 +29,10 @@ const useStyles = makeStyles((theme) => ({
 	},
 	textItalic: {
 		fontStyle: "italic",
+	},
+	expandSection: {
+		position: "fixed",
+		bottom: 0,
 	},
 }));
 
@@ -91,7 +95,7 @@ const About = ({ linkStyle }) => {
 				</Typography>
 			</Container>
 
-			<ExpandMore />
+			<ExpandMore position={classes.expandSection} />
 		</Box>
 	);
 };
@@ -100,6 +104,7 @@ About.propTypes = {
 	navbarText: PropTypes.string,
 	closeButton: PropTypes.bool,
 	linkStyle: PropTypes.object,
+	position: PropTypes.object,
 };
 
 export default About;

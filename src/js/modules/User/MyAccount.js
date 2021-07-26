@@ -9,12 +9,15 @@ import CameraAltIcon from "@material-ui/icons/CameraAlt";
 import InfoItemView from "../../common/InfoItemView";
 
 const useStyles = makeStyles((theme) => ({
-	container: {
+	root: {
 		backgroundColor: theme.palette.background.paper,
 		position: "relative",
+		display: "flex",
+		flexDirection: "column",
+		height: "100vh",
 	},
 	prevNavbar: {
-		color: theme.palette.text.secondary,
+		color: theme.palette.text.primary,
 		backgroundColor: theme.palette.background.paper,
 	},
 	accountCtn: {
@@ -95,7 +98,7 @@ const MyAccount = () => {
 			</Box>
 
 			<Container className={classes.navigationCtn}>
-				<Typography variant="h1" align="center">
+				<Typography variant="h1" align="center" color="primary">
 					NOMBRE DE USUARIO
 				</Typography>
 				<InfoItemView links={myAccountLinks} />

@@ -1,15 +1,15 @@
 import React, { useState } from "react";
+import PropTypes from "prop-types";
 import { Box, makeStyles } from "@material-ui/core";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
+import { Visibility } from "@material-ui/icons";
 
 const useStyles = makeStyles((theme) => ({
 	arrowIconCtn: {
 		color: theme.palette.common.white,
 		width: "100%",
-		position: "fixed",
 		backgroundImage:
 			"linear-gradient(rgba(255, 255, 255, 0.3), rgba(0, 0, 0, 0.7))",
-		bottom: 0,
 		zIndex: 1000,
 	},
 	arrowIcon: {
@@ -17,9 +17,14 @@ const useStyles = makeStyles((theme) => ({
 		margin: "auto",
 		fontSize: 50,
 	},
+	vibilityHidden: {
+		visibility: "hidden",
+		height: 0,
+		transition: "height 0.5s",
+	},
 }));
 
-const ExpandMore = () => {
+const ExpandMore = ({ position }) => {
 	const classes = useStyles();
 
 	const [scrollablePage, setScrollablePage] = useState(true);
@@ -36,10 +41,20 @@ const ExpandMore = () => {
 	};
 
 	return (
-		<Box className={classes.arrowIconCtn}>
-			{scrollablePage && <ExpandMoreIcon className={classes.arrowIcon} />}
+		<Box className={`${classes.arrowIconCtn} ${position}`}>
+			<ExpandMoreIcon
+				className={
+					scrollablePage
+						? `${classes.arrowIcon}`
+						: `${classes.arrowIcon} ${classes.vibilityHidden}`
+				}
+			/>
 		</Box>
 	);
+};
+
+ExpandMore.propTypes = {
+	position: PropTypes.string,
 };
 
 export default ExpandMore;

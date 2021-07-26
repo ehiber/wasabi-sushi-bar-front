@@ -18,6 +18,12 @@ const useStyles = makeStyles((theme) => ({
 		borderBottomWidth: 0,
 	},
 	mainContainer: {
+		height: "100%",
+		display: "flex",
+		flexDirection: "column",
+		justifyContent: "space-between",
+	},
+	mainContent: {
 		rowGap: 10,
 		width: "100%",
 		padding: "0px 30px",
@@ -52,24 +58,25 @@ const LoginFormView = () => {
 				previewButton={true}
 				linkStyle={classes.prevNavbar}
 			/>
-			<Box
-				display="flex"
-				flexDirection="column"
-				className={classes.mainContainer}
-			>
-				<Box className={classes.logoCtn}>
-					<img src={Logo} className={classes.logoImg}></img>
-				</Box>
-				<Typography
-					variant="h2"
-					align="center"
-					className={classes.title}
+			<Box className={classes.mainContainer}>
+				<Box
+					display="flex"
+					flexDirection="column"
+					className={classes.mainContent}
 				>
-					INGRESÁ TUS DATOS
-				</Typography>
-				<RegisterForm login={true} enterButton={"INICIAR"} />
+					<Box className={classes.logoCtn}>
+						<img src={Logo} className={classes.logoImg}></img>
+					</Box>
+					<Typography
+						variant="h2"
+						align="center"
+						className={classes.title}
+					>
+						INGRESÁ TUS DATOS
+					</Typography>
+					<RegisterForm login={true} enterButton={"INICIAR"} />
+				</Box>
 			</Box>
-
 			<GoogleButton btnText={"Iniciar Sesión con"} />
 		</Box>
 	);
