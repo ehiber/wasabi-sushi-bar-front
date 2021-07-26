@@ -14,16 +14,26 @@ const theme = createMuiTheme({
 		primary: {
 			main: colors.primary.main,
 			dark: colors.primary.dark,
-			light: colors.common.white,
+			light: colors.primary.light,
 		},
 		secondary: {
 			main: colors.secondary.main,
 			dark: colors.secondary.dark,
-			light: colors.secondary.main,
+			light: colors.secondary.light,
 		},
 		text: {
 			primary: colors.text.primary,
 			secondary: colors.text.secondary,
+		},
+		buttons: {
+			primary: colors.buttons.primary,
+			secondary: colors.buttons.secondary,
+			other: colors.buttons.other,
+		},
+		error: {
+			main: colors.error.primary,
+			dark: colors.error.primary,
+			light: colors.error.primary,
 		},
 	},
 	typography: {
@@ -31,31 +41,31 @@ const theme = createMuiTheme({
 		h1: {
 			fontSize: "1.383rem",
 			fontWeight: 700,
-			color: colors.primary.dark,
+			color: colors.primary.main,
 			marginBottom: ".5em",
 		},
 		h2: {
 			fontSize: "1.296rem",
 			fontWeight: 700,
-			color: colors.primary.dark,
+			color: colors.primary.main,
 		},
 		h3: {
 			fontSize: "1.215rem",
 			fontWeight: 700,
-			color: colors.primary.dark,
+			color: colors.primary.main,
 		},
 		h4: {
 			fontSize: "1.138rem",
 			fontWeight: 700,
-			color: colors.primary.dark,
+			color: colors.primary.main,
 		},
 		h5: {
 			fontSize: "1.067rem",
-			color: colors.primary.dark,
+			color: colors.primary.main,
 		},
 		h6: {
 			fontSize: "1rem",
-			color: colors.primary.dark,
+			color: colors.primary.main,
 		},
 		subtitle1: {
 			color: colors.text.secondary,

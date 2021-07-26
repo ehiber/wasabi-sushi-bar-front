@@ -179,7 +179,7 @@ export default function SideBar() {
 					<Typography variant="h2" color="textSecondary">
 						NOMBRE
 					</Typography>
-					<Link href="#">
+					<Link href="/mi-cuenta">
 						<Typography variant="h4" color="textPrimary">
 							Mi Cuenta
 						</Typography>

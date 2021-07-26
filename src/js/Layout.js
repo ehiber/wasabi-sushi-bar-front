@@ -41,7 +41,7 @@ const Layout = (props) => {
 							<Route exact path="/" component={Home} />
 							<Route path="/nosotros" component={About} />
 							<Route
-								path="/register"
+								path="/registro"
 								component={RegisterFormView}
 							/>
 							<Route path="/login" component={LoginFormView} />
@@ -54,7 +54,7 @@ const Layout = (props) => {
 							<Route path="/ayuda" component={HelpView} />
 
 							<Route
-								path="/personal-data"
+								path="/datos-personales"
 								component={PersonalData}
 							/>
 							<Route path="/ayuda" component={HelpView} />
