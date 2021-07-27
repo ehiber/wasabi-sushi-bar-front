@@ -8,7 +8,7 @@ import ExpandMore from "../../common/ExpandMore";
 
 const useStyles = makeStyles((theme) => ({
 	root: {
-		height: "100vh",
+		height: "100%",
 	},
 	dishesView: {
 		display: "flex",

@@ -67,6 +67,34 @@ const orders = [
 		number: "123456",
 		price: 535,
 	},
+	{
+		id: "7",
+		date: "01/01/2021",
+		status: "ENTREGADO",
+		number: "123456",
+		price: 535,
+	},
+	{
+		id: "8",
+		date: "01/01/2021",
+		status: "ENTREGADO",
+		number: "123456",
+		price: 535,
+	},
+	{
+		id: "9",
+		date: "01/01/2021",
+		status: "ENTREGADO",
+		number: "123456",
+		price: 535,
+	},
+	{
+		id: "10",
+		date: "01/01/2021",
+		status: "ENTREGADO",
+		number: "123456",
+		price: 535,
+	},
 ];
 
 const ModalCancelVerification = () => {
@@ -89,7 +117,7 @@ const ModalCancelText = () => {
 const useStyles = makeStyles((theme) => ({
 	root: {
 		width: "100%",
-		height: "100vh",
+		height: "100%",
 		backgroundColor: theme.palette.background.paper,
 		"& .MuiAccordionSummary-content": {
 			columnGap: 5,
@@ -160,7 +188,7 @@ const useStyles = makeStyles((theme) => ({
 		},
 	},
 	cancelBtn: {
-		backgroundColor: "#ff5c35",
+		backgroundColor: theme.palette.error.main,
 		borderRadius: 0,
 		padding: 10,
 		color: theme.palette.common.white,
@@ -169,16 +197,16 @@ const useStyles = makeStyles((theme) => ({
 		color: theme.palette.primary.main,
 	},
 	deniedTitle: {
-		color: "#ff5c35",
+		color: theme.palette.error.main,
 	},
 	errorModalTitle: {
-		color: "#ff5c35",
+		color: theme.palette.error.main,
 		fontSize: "1.6rem",
 		marginBottom: 15,
 	},
 	errorNextButton: {
-		backgroundColor: "#ff5c35",
-		color: "white",
+		backgroundColor: theme.palette.error.main,
+		color: theme.palette.common.white,
 		width: "100%",
 		borderRadius: 20,
 	},
@@ -337,10 +365,7 @@ export default function ShoppingHistory() {
 								className={classes.accordionDetails}
 							>
 								<List className={classes.listContainer}>
-									<ListItem
-										className={classes.listItem}
-										color
-									>
+									<ListItem className={classes.listItem}>
 										<ListItemText primary="Orden Nº" />
 										<ListItemText
 											primary={order.number}
@@ -364,6 +389,7 @@ export default function ShoppingHistory() {
 					);
 				})}
 			</Box>
+
 			<ExpandMore position={classes.expandSection} />
 
 			{counter == 1 ? (

@@ -60,7 +60,7 @@ const useStyles = makeStyles((theme) => ({
 		flexDirection: "column",
 		backgroundColor: theme.palette.background.paper,
 		position: "relative",
-		height: "100vh",
+		height: "100%",
 	},
 	prevNavbar: {
 		color: theme.palette.text.primary,

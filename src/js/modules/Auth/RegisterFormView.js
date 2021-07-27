@@ -9,7 +9,7 @@ const useStyles = makeStyles((theme) => ({
 	container: {
 		display: "flex",
 		justifyContent: "space-between",
-		height: "100vh",
+		height: "100%",
 		padding: "10px 10px 40px",
 		backgroundColor: theme.palette.common.black,
 	},

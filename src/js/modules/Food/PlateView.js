@@ -47,7 +47,6 @@ const useStyles = makeStyles((theme) => ({
 		flexDirection: "column",
 		backgroundColor: theme.palette.background.paper,
 		position: "relative",
-		height: "100%",
 	},
 	prevNavbar: {
 		color: theme.palette.common.white,
@@ -106,7 +105,7 @@ const useStyles = makeStyles((theme) => ({
 		alignItems: "center",
 	},
 	bottomContainer: {
-		position: "sticky",
+		position: "fixed",
 		bottom: 0,
 		width: "100%",
 	},
@@ -129,12 +128,12 @@ const useStyles = makeStyles((theme) => ({
 		},
 	},
 	modalTitle: {
-		color: "#ff5c35",
+		color: theme.palette.error.main,
 		fontSize: "1.6rem",
 		marginBottom: 15,
 	},
 	nextButton: {
-		backgroundColor: "#ff5c35",
+		backgroundColor: theme.palette.error.main,
 		color: theme.palette.common.white,
 		width: "100%",
 		borderRadius: 20,
@@ -144,6 +143,8 @@ const useStyles = makeStyles((theme) => ({
 const PlateView = () => {
 	const classes = useStyles();
 
+	let totalPrice = 500;
+
 	const [state, setState] = React.useState({
 		checkedA: false,
 		checkedB: true,
@@ -151,26 +152,36 @@ const PlateView = () => {
 
 	const [open, setOpen] = React.useState(false);
 
-	const [counter, setCounter] = React.useState(1);
-
-	const [amount, setAmount] = React.useState(10);
-
-	const [price, setPrice] = React.useState(500);
+	const [total, setTotal] = React.useState({
+		counter: 1,
+		amount: 10,
+		price: 500,
+	});
 
 	const handleChange = (event) => {
 		setState({ ...state, [event.target.name]: event.target.checked });
 	};
 
 	const handleSum = () => {
-		setCounter((prevCounter) => prevCounter + 1);
-		setAmount((prevAmount) => prevAmount + 10);
-		setPrice((prevPrice) => prevPrice * counter);
+		setTotal((prevTotal) => {
+			return {
+				counter: prevTotal.counter + 1,
+				amount: prevTotal.amount + 10,
+				price: 500 * (prevTotal.counter + 1),
+			};
+		});
 	};
 
 	const handleSubstraction = () => {
-		setCounter((prevCounter) => prevCounter - 1);
-		setAmount((prevAmount) => prevAmount - 10);
-		setPrice((prevPrice) => (counter - 1) * prevPrice);
+		if (total.counter > 1) {
+			setTotal((prevTotal) => {
+				return {
+					counter: prevTotal.counter - 1,
+					amount: prevTotal.amount - 10,
+					price: 500 * (prevTotal.counter - 1),
+				};
+			});
+		}
 	};
 
 	const handleOpen = () => {
@@ -213,7 +224,7 @@ const PlateView = () => {
 							>
 								-
 							</Button>
-							<Typography>{counter}</Typography>
+							<Typography>{total.counter}</Typography>
 							<Button
 								className={classes.counterButton}
 								color="secondary"
@@ -221,10 +232,10 @@ const PlateView = () => {
 							>
 								+
 							</Button>
-							<Typography>{amount} piezas</Typography>
+							<Typography>{total.amount} piezas</Typography>
 						</Box>
 
-						<Typography>{price}</Typography>
+						<Typography>{total.price}</Typography>
 					</Box>
 				</Container>
 
@@ -316,29 +327,78 @@ const PlateView = () => {
 
 							<Typography className={classes.bold}>10</Typography>
 						</Box>
+						<Box className={classes.extrasOptions}>
+							<FormControlLabel
+								control={
+									<Checkbox
+										checked={state.checkedD}
+										onChange={handleChange}
+										name="checkedD"
+										checkedIcon={<CheckBoxOutlinedIcon />}
+										color="primary"
+									/>
+								}
+								label="Salsa Soya"
+							/>
+
+							<Typography className={classes.bold}>10</Typography>
+						</Box>
+						<Box className={classes.extrasOptions}>
+							<FormControlLabel
+								control={
+									<Checkbox
+										checked={state.checkedD}
+										onChange={handleChange}
+										name="checkedD"
+										checkedIcon={<CheckBoxOutlinedIcon />}
+										color="primary"
+									/>
+								}
+								label="Salsa Soya"
+							/>
+
+							<Typography className={classes.bold}>10</Typography>
+						</Box>
+						<Box className={classes.extrasOptions}>
+							<FormControlLabel
+								control={
+									<Checkbox
+										checked={state.checkedD}
+										onChange={handleChange}
+										name="checkedD"
+										checkedIcon={<CheckBoxOutlinedIcon />}
+										color="primary"
+									/>
+								}
+								label="Salsa Soya"
+							/>
+
+							<Typography className={classes.bold}>10</Typography>
+						</Box>
 					</FormGroup>
 				</FormControl>
-			</Box>
+				<Box className={classes.bottomContainer}>
+					<ExpandMore position={classes.expandSection} />
 
-			<Box className={classes.bottomContainer}>
-				<ExpandMore position={classes.expandSection} />
-
-				<Container className={classes.shoppingTotalCtn}>
-					<Button
-						className={classes.shoppingButton}
-						onClick={handleOpen}
-					>
-						AÑADIR
-					</Button>
-					<Box
-						width="35%"
-						display="flex"
-						justifyContent="space-between"
-					>
-						<Typography>TOTAL</Typography>
-						<Typography className={classes.bold}>500</Typography>
-					</Box>
-				</Container>
+					<Container className={classes.shoppingTotalCtn}>
+						<Button
+							className={classes.shoppingButton}
+							onClick={handleOpen}
+						>
+							AÑADIR
+						</Button>
+						<Box
+							width="35%"
+							display="flex"
+							justifyContent="space-between"
+						>
+							<Typography>TOTAL</Typography>
+							<Typography className={classes.bold}>
+								{totalPrice}
+							</Typography>
+						</Box>
+					</Container>
+				</Box>
 			</Box>
 
 			<ModalBase

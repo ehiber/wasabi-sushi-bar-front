@@ -8,7 +8,7 @@ import InfoItemView from "../../../common/InfoItemView";
 
 const useStyles = makeStyles((theme) => ({
 	container: {
-		height: "100vh",
+		height: "100%",
 		backgroundColor: theme.palette.background.paper,
 	},
 	pageContent: {

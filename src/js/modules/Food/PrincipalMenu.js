@@ -10,7 +10,7 @@ const useStyles = makeStyles((theme) => ({
 	container: {
 		display: "flex",
 		flexDirection: "column",
-		height: "100vh",
+		height: "100%",
 	},
 	itemContainer: {
 		display: "flex",

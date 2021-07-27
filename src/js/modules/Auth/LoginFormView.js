@@ -11,7 +11,7 @@ const useStyles = makeStyles((theme) => ({
 		display: "flex",
 		backgroundColor: theme.palette.common.black,
 		color: theme.palette.common.white,
-		height: "100vh",
+		height: "100%",
 	},
 	prevNavbar: {
 		color: theme.palette.common.white,

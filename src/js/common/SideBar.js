@@ -196,10 +196,13 @@ export default function SideBar() {
 					>
 						Menú Principal
 					</NavLink>
-					<NavLink to="/" className={classes.navigationItem}>
+					<NavLink
+						to="/mi-carrito"
+						className={classes.navigationItem}
+					>
 						Mi Carrito
 					</NavLink>
-					<NavLink to="/" className={classes.navigationItem}>
+					<NavLink to="/historial" className={classes.navigationItem}>
 						Historial de Compras
 					</NavLink>
 					<NavLink
