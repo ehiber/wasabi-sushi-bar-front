@@ -7,7 +7,7 @@ const useStyles = makeStyles(() => ({
 	googleButton: {
 		display: "flex",
 		position: "relative",
-		bottom: 40,
+		marginBottom: 40,
 		backgroundColor: "rgba(255,255,255,0.50)",
 		borderRadius: "30px",
 		padding: "2px 40px 2px 10px",

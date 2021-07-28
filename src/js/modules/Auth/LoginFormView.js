@@ -22,6 +22,7 @@ const useStyles = makeStyles((theme) => ({
 		display: "flex",
 		flexDirection: "column",
 		justifyContent: "space-between",
+		rowGap: 10,
 	},
 	mainContent: {
 		rowGap: 10,
@@ -76,8 +77,8 @@ const LoginFormView = () => {
 					</Typography>
 					<RegisterForm login={true} enterButton={"INICIAR"} />
 				</Box>
+				<GoogleButton btnText={"Iniciar Sesión con"} />
 			</Box>
-			<GoogleButton btnText={"Iniciar Sesión con"} />
 		</Box>
 	);
 };
