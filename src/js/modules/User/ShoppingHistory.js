@@ -209,6 +209,13 @@ const useStyles = makeStyles((theme) => ({
 		color: theme.palette.common.white,
 		width: "100%",
 		borderRadius: 20,
+		padding: "6px 8px",
+		fontSize: "1rem",
+		fontWeight: "bold",
+		lineHeight: 1.75,
+		"&:hover": {
+			textDecoration: "none",
+		},
 	},
 	expandSection: {
 		position: "fixed",
@@ -390,7 +397,9 @@ export default function ShoppingHistory() {
 				})}
 			</Box>
 
-			<ExpandMore position={classes.expandSection} />
+			{document.body.scrollHeight > document.body.offsetHeight && (
+				<ExpandMore position={classes.expandSection} />
+			)}
 
 			{counter == 1 ? (
 				<ModalBase
@@ -429,4 +438,15 @@ export default function ShoppingHistory() {
 
 ShoppingHistory.propTypes = {
 	position: PropTypes.object,
+	Logo: PropTypes.node,
+	modalTitle: PropTypes.string,
+	open: PropTypes.bool,
+	onOpen: PropTypes.func,
+	onClose: PropTypes.func,
+	titleStyle: PropTypes.object,
+	paragraphText: PropTypes.node,
+	inputText: PropTypes.node,
+	nextButtonText: PropTypes.string,
+	prevButtonText: PropTypes.string,
+	buttonStyle: PropTypes.object,
 };

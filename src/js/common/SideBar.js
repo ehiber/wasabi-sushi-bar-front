@@ -101,12 +101,26 @@ const useStyles = makeStyles((theme) => ({
 		color: theme.palette.common.white,
 		width: "100%",
 		borderRadius: 20,
+		padding: "6px 8px",
+		fontSize: "1rem",
+		fontWeight: "bold",
+		lineHeight: 1.75,
+		"&:hover": {
+			textDecoration: "none",
+		},
 	},
 	yellowNextButton: {
 		backgroundColor: "#ffb71b",
 		color: theme.palette.common.black,
 		width: "100%",
 		borderRadius: 20,
+		padding: "6px 8px",
+		fontSize: "1rem",
+		fontWeight: "bold",
+		lineHeight: 1.75,
+		"&:hover": {
+			textDecoration: "none",
+		},
 	},
 }));
 

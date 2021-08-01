@@ -95,7 +95,9 @@ const About = ({ linkStyle }) => {
 				</Typography>
 			</Container>
 
-			<ExpandMore position={classes.expandSection} />
+			{document.body.scrollHeight > document.body.offsetHeight && (
+				<ExpandMore position={classes.expandSection} />
+			)}
 		</Box>
 	);
 };

@@ -21,7 +21,6 @@ import {
 	Checkbox,
 } from "@material-ui/core";
 import CheckBoxOutlinedIcon from "@material-ui/icons/CheckBoxOutlined";
-// import CancelPresentationRoundedIcon from "@material-ui/icons/CancelPresentationRounded";
 import ClearRoundedIcon from "@material-ui/icons/ClearRounded";
 import Sidebar from "../../common/SideBar";
 import PrevNavbar from "../../common/PrevNavbar";
@@ -55,6 +54,7 @@ const useStyles = makeStyles((theme) => ({
 	mainContainer: {
 		display: "flex",
 		flexDirection: "column",
+		marginBottom: 50,
 	},
 	headContainer: {
 		backgroundColor: theme.palette.background.default,
@@ -137,6 +137,13 @@ const useStyles = makeStyles((theme) => ({
 		color: theme.palette.common.white,
 		width: "100%",
 		borderRadius: 20,
+		padding: "6px 8px",
+		fontSize: "1rem",
+		fontWeight: "bold",
+		lineHeight: 1.75,
+		"&:hover": {
+			textDecoration: "none",
+		},
 	},
 }));
 
@@ -144,6 +151,8 @@ const PlateView = () => {
 	const classes = useStyles();
 
 	let totalPrice = 500;
+
+	let notAvailable = true;
 
 	const [state, setState] = React.useState({
 		checkedA: false,
@@ -259,30 +268,38 @@ const PlateView = () => {
 							}
 							label="Wasabi"
 						/>
-						<FormControlLabel
-							control={
-								<Checkbox
-									disabled
-									inputProps={{
-										"aria-label":
-											"disabled checked checkbox",
-									}}
-									checked={state.checkedB}
-									onChange={handleChange}
-									checkedIcon={<ClearRoundedIcon />}
-									// checkedIcon={
-									// 	disabled ? (
-									// 		<CancelPresentationRoundedIcon />
-									// 	) : (
-									// 		<CheckBoxOutlinedIcon />
-									// 	)
-									// } Activar cuando tengamos una variable que nos diga si esta disponible el producto
-									color="primary"
-									name="checkedB"
-								/>
-							}
-							label="Jengibre"
-						/>
+						<Box className={classes.extrasOptions}>
+							<FormControlLabel
+								control={
+									<Checkbox
+										disabled
+										inputProps={{
+											"aria-label":
+												"disabled checked checkbox",
+										}}
+										checked={state.checkedB}
+										onChange={handleChange}
+										checkedIcon={
+											notAvailable ? ( //notAvailable es una variable temporal, sustituir por lo que traiga el back
+												<ClearRoundedIcon />
+											) : (
+												<CheckBoxOutlinedIcon />
+											)
+										}
+										color="primary"
+										name="checkedB"
+									/>
+								}
+								label="Jengibre"
+							/>
+							{notAvailable ? ( //notAvailable es una variable temporal, sustituir por lo que traiga el back}
+								<Typography color="secondary">
+									No disponible
+								</Typography>
+							) : (
+								" "
+							)}
+						</Box>
 					</FormGroup>
 				</FormControl>
 
@@ -327,78 +344,32 @@ const PlateView = () => {
 
 							<Typography className={classes.bold}>10</Typography>
 						</Box>
-						<Box className={classes.extrasOptions}>
-							<FormControlLabel
-								control={
-									<Checkbox
-										checked={state.checkedD}
-										onChange={handleChange}
-										name="checkedD"
-										checkedIcon={<CheckBoxOutlinedIcon />}
-										color="primary"
-									/>
-								}
-								label="Salsa Soya"
-							/>
-
-							<Typography className={classes.bold}>10</Typography>
-						</Box>
-						<Box className={classes.extrasOptions}>
-							<FormControlLabel
-								control={
-									<Checkbox
-										checked={state.checkedD}
-										onChange={handleChange}
-										name="checkedD"
-										checkedIcon={<CheckBoxOutlinedIcon />}
-										color="primary"
-									/>
-								}
-								label="Salsa Soya"
-							/>
-
-							<Typography className={classes.bold}>10</Typography>
-						</Box>
-						<Box className={classes.extrasOptions}>
-							<FormControlLabel
-								control={
-									<Checkbox
-										checked={state.checkedD}
-										onChange={handleChange}
-										name="checkedD"
-										checkedIcon={<CheckBoxOutlinedIcon />}
-										color="primary"
-									/>
-								}
-								label="Salsa Soya"
-							/>
-
-							<Typography className={classes.bold}>10</Typography>
-						</Box>
 					</FormGroup>
 				</FormControl>
-				<Box className={classes.bottomContainer}>
+			</Box>
+			<Box className={classes.bottomContainer}>
+				{document.body.scrollHeight > document.body.offsetHeight && (
 					<ExpandMore position={classes.expandSection} />
+				)}
 
-					<Container className={classes.shoppingTotalCtn}>
-						<Button
-							className={classes.shoppingButton}
-							onClick={handleOpen}
-						>
-							AÑADIR
-						</Button>
-						<Box
-							width="35%"
-							display="flex"
-							justifyContent="space-between"
-						>
-							<Typography>TOTAL</Typography>
-							<Typography className={classes.bold}>
-								{totalPrice}
-							</Typography>
-						</Box>
-					</Container>
-				</Box>
+				<Container className={classes.shoppingTotalCtn}>
+					<Button
+						className={classes.shoppingButton}
+						onClick={handleOpen}
+					>
+						AÑADIR
+					</Button>
+					<Box
+						width="35%"
+						display="flex"
+						justifyContent="space-between"
+					>
+						<Typography>TOTAL</Typography>
+						<Typography className={classes.bold}>
+							{totalPrice}
+						</Typography>
+					</Box>
+				</Container>
 			</Box>
 
 			<ModalBase
@@ -420,6 +391,16 @@ const PlateView = () => {
 
 PlateView.propTypes = {
 	position: PropTypes.object,
+	Logo: PropTypes.node,
+	modalTitle: PropTypes.string,
+	open: PropTypes.bool,
+	onOpen: PropTypes.func,
+	onClose: PropTypes.func,
+	titleStyle: PropTypes.object,
+	paragraphText: PropTypes.node,
+	nextButtonText: PropTypes.string,
+	prevButtonText: PropTypes.string,
+	buttonStyle: PropTypes.object,
 };
 
 export default PlateView;

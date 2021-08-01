@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import PropTypes from "prop-types";
 import { Box, makeStyles } from "@material-ui/core";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
@@ -27,24 +27,24 @@ const useStyles = makeStyles((theme) => ({
 const ExpandMore = ({ position }) => {
 	const classes = useStyles();
 
-	const [scrollablePage, setScrollablePage] = useState(true);
+	const [scrolling, setScrolling] = useState(false);
+	const [scrollTop, setScrollTop] = useState(0);
 
-	window.onscroll = function (e) {
-		if (
-			window.innerHeight + window.pageYOffset >=
-			document.body.offsetHeight
-		) {
-			setScrollablePage(false);
-		} else {
-			setScrollablePage(true);
-		}
-	};
+	useEffect(() => {
+		const onScroll = (e) => {
+			setScrollTop(e.target.documentElement.scrollTop);
+			setScrolling(e.target.documentElement.scrollTop > scrollTop);
+		};
+		window.addEventListener("scroll", onScroll);
+
+		return () => window.removeEventListener("scroll", onScroll);
+	}, [scrollTop]);
 
 	return (
 		<Box className={`${classes.arrowIconCtn} ${position}`}>
 			<ExpandMoreIcon
 				className={
-					scrollablePage
+					!scrolling
 						? `${classes.arrowIcon}`
 						: `${classes.arrowIcon} ${classes.vibilityHidden}`
 				}

@@ -32,6 +32,13 @@ const ModalPasswordInput = () => {
 };
 
 const useStyles = makeStyles((theme) => ({
+	formCtn: {
+		display: "flex",
+		flexDirection: "column",
+		rowGap: "40px",
+		alignItems: "center",
+		width: "100%",
+	},
 	form: {
 		display: "flex",
 		flexDirection: "column",
@@ -40,7 +47,7 @@ const useStyles = makeStyles((theme) => ({
 		width: "100%",
 	},
 	aquaModalTitle: {
-		color: "#19d3c5",
+		color: theme.palette.buttons.primary,
 		fontSize: "1.6rem",
 		marginBottom: 15,
 	},
@@ -59,15 +66,15 @@ const useStyles = makeStyles((theme) => ({
 			fontStyle: "italic",
 			color: theme.palette.text.secondary,
 		},
+		[`& .MuiOutlinedInput-input`]: {
+			padding: "10px 14px",
+		},
 		[`& .MuiFormLabel-root.Mui-focused`]: {
 			visibility: "hidden",
 		},
 		[`& .MuiOutlinedInput-root`]: {
 			backgroundColor: "#f2f2f2",
 			borderRadius: "30px",
-			[`& .MuiOutlinedInput-input`]: {
-				padding: "10px 14px",
-			},
 		},
 	},
 	button: {
@@ -76,6 +83,9 @@ const useStyles = makeStyles((theme) => ({
 		padding: "7px 30px 5px",
 		color: theme.palette.common.white,
 		maxWidth: "150px",
+		"&:hover": {
+			backgroungColor: "currentColor",
+		},
 	},
 	text: {
 		color: theme.palette.common.white,
@@ -83,21 +93,37 @@ const useStyles = makeStyles((theme) => ({
 	linkContainer: {
 		display: "flex",
 		flexDirection: "column",
-		rowGap: 15,
 		marginTop: "50px",
+		rowGap: 15,
+	},
+	openModalButtons: {
 		fontStyle: "italic",
 	},
 	aquaNextButton: {
-		backgroundColor: "#19d3c5",
-		color: "white",
+		backgroundColor: theme.palette.buttons.primary,
+		color: theme.palette.common.white,
 		width: "100%",
 		borderRadius: 20,
+		padding: "6px 8px",
+		fontSize: "1rem",
+		fontWeight: "bold",
+		lineHeight: 1.75,
+		"&:hover": {
+			textDecoration: "none",
+		},
 	},
 	blueNextButton: {
 		backgroundColor: "#009ade",
-		color: "white",
+		color: theme.palette.common.white,
 		width: "100%",
 		borderRadius: 20,
+		padding: "6px 8px",
+		fontSize: "1rem",
+		fontWeight: "bold",
+		lineHeight: 1.75,
+		"&:hover": {
+			textDecoration: "none",
+		},
 	},
 }));
 
@@ -133,8 +159,8 @@ const RegisterForm = ({ login, enterButton }) => {
 	};
 
 	return (
-		<div>
-			<form className={classes.form} noValidate autoComplete="off">
+		<Box>
+			<form className={classes.formCtn} noValidate autoComplete="off">
 				<Box className={classes.form}>
 					<TextField
 						className={classes.input}
@@ -148,18 +174,26 @@ const RegisterForm = ({ login, enterButton }) => {
 					/>
 				</Box>
 
-				<Box className={classes.linkContainer}>
-					{login && (
+				{login && (
+					<Box className={classes.linkContainer}>
 						<Box>
 							<Typography>
-								<Link color="inherit" onClick={handleOpen}>
+								<Button
+									className={classes.openModalButtons}
+									color="inherit"
+									onClick={handleOpen}
+								>
 									¿Olvidaste tu usuario?
-								</Link>
+								</Button>
 							</Typography>
 							<Typography>
-								<Link color="inherit" onClick={handleOpen}>
+								<Button
+									className={classes.openModalButtons}
+									color="inherit"
+									onClick={handleOpen}
+								>
 									¿Olvidaste tu contraseña?
-								</Link>
+								</Button>
 							</Typography>
 							{counter == 1 ? (
 								<ModalBase
@@ -214,14 +248,14 @@ const RegisterForm = ({ login, enterButton }) => {
 								inputText={<ModalInput />}
 							/> */}
 						</Box>
-					)}
-				</Box>
+					</Box>
+				)}
 
 				<Button variant="contained" className={classes.button}>
 					{enterButton}
 				</Button>
 			</form>
-		</div>
+		</Box>
 	);
 };
 

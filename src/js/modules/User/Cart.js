@@ -60,7 +60,6 @@ const useStyles = makeStyles((theme) => ({
 		flexDirection: "column",
 		backgroundColor: theme.palette.background.paper,
 		position: "relative",
-		height: "100%",
 	},
 	prevNavbar: {
 		color: theme.palette.text.primary,
@@ -172,6 +171,13 @@ const useStyles = makeStyles((theme) => ({
 		color: theme.palette.common.black,
 		width: "100%",
 		borderRadius: 20,
+		padding: "6px 8px",
+		fontSize: "1rem",
+		fontWeight: "bold",
+		lineHeight: 1.75,
+		"&:hover": {
+			textDecoration: "none",
+		},
 	},
 }));
 
@@ -346,6 +352,16 @@ Cart.propTypes = {
 	navbarText: PropTypes.string,
 	previewButton: PropTypes.bool,
 	linkStyle: PropTypes.object,
+	Logo: PropTypes.node,
+	modalTitle: PropTypes.string,
+	open: PropTypes.bool,
+	onOpen: PropTypes.func,
+	onClose: PropTypes.func,
+	titleStyle: PropTypes.object,
+	paragraphText: PropTypes.node,
+	nextButtonText: PropTypes.string,
+	prevButtonText: PropTypes.string,
+	buttonStyle: PropTypes.object,
 };
 
 export default Cart;

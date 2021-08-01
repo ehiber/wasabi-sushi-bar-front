@@ -4,13 +4,15 @@ import PropTypes from "prop-types";
 import RegisterForm from "./components/forms/RegisterForm";
 import GoogleButton from "./GoogleButton";
 import PrevNavbar from "../../common/PrevNavbar";
+import Logo from "../../../../dist/screenshot-without-bg.png";
 
 const useStyles = makeStyles((theme) => ({
 	container: {
 		display: "flex",
-		justifyContent: "space-between",
+		justifyContent: "space-evenly",
+		rowGap: 5,
 		height: "100%",
-		padding: "10px 10px 40px",
+		padding: "10px 0px",
 		backgroundColor: theme.palette.common.black,
 	},
 	prevNavbar: {
@@ -24,8 +26,17 @@ const useStyles = makeStyles((theme) => ({
 		color: theme.palette.common.white,
 	},
 	mainText: {
-		color: "gray",
+		color: theme.palette.text.secondary,
 		fontStyle: "italic",
+	},
+	logoCtn: {
+		width: "70%",
+		maxWidth: "300px",
+		margin: "auto",
+	},
+	logoImg: {
+		width: "100%",
+		margin: "auto",
 	},
 }));
 
@@ -50,6 +61,9 @@ const RegisterFormView = () => {
 				flexDirection="column"
 				className={classes.mainContainer}
 			>
+				<Box className={classes.logoCtn}>
+					<img src={Logo} className={classes.logoImg}></img>
+				</Box>
 				<Typography
 					variant="h2"
 					align="center"
@@ -57,7 +71,7 @@ const RegisterFormView = () => {
 				>
 					INGRESÁ TUS DATOS
 				</Typography>
-				<Typography variant="body1" className={classes.mainText}>
+				<Typography variant="body2" className={classes.mainText}>
 					Ingresá una cuenta de correo electrónico y una contraseña.
 					La contraseña debe tener un mínimo de 5 caractéres
 					alfanuméricos

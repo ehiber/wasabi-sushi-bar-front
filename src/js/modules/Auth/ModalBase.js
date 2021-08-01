@@ -6,6 +6,7 @@ import {
 	DialogActions,
 	DialogContent,
 	Button,
+	Link,
 } from "@material-ui/core";
 import { Box, Typography } from "@material-ui/core";
 
@@ -82,9 +83,9 @@ const ModalBase = ({
 				{paragraphText}
 			</DialogContent>
 			<DialogActions className={classes.buttons}>
-				<Button className={buttonStyle} onClick={onOpen}>
+				<Link className={buttonStyle} onClick={onOpen}>
 					{nextButtonText}
-				</Button>
+				</Link>
 				<Button className={classes.secondaryBtn} onClick={onClose}>
 					{prevButtonText}
 				</Button>
